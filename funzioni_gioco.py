@@ -48,8 +48,9 @@ def calcola_mossa(corpo, mossa, righe, colonne):
         posizione della testa
 
     """
-    pass
-
+    nuova_posizione = [(corpo[0][0] + mossa[0]) % righe, (corpo[0][1] + mossa[1]) % colonne]
+    return nuova_posizione
+    
 def controlla(corpo, scia_serpente, posizione_nuova, campo_da_gioco):
     """
     Funzione che controlla se la posizione nuova è:
