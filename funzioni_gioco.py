@@ -122,7 +122,10 @@ def mangia(corpo, scia_serpente, posizione_nuova , campo_da_gioco):
         lista di tutte le caselle in cui il corpo del serpente è passato aggiornata.
 
     """
-    pass
+    campo_da_gioco["food"].remove(posizione_nuova)
+    scia_serpente.insert(0,corpo[-1])
+    corpo = [posizione_nuova,posizione_nuova]+corpo
+    return corpo, scia_serpente
 
 def muovi(corpo, scia_serpente, posizione_nuova , campo_da_gioco):
     """
