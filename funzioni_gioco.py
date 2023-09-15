@@ -22,7 +22,18 @@ def converti_mosse(mosse):
         lista delle mosse scritte nella forma vettoriale (es. [[-1, 0],[0,-1], ...])
 
     """
-    pass
+    direzioni = {
+        'N': [-1, 0],
+        'S': [1, 0],
+        'E': [0, 1],
+        'W': [0, -1],
+        'NE': [-1, 1],
+        'NW': [-1, -1],
+        'SE': [1, 1],
+        'SW': [1, -1]
+    }
+    mosse_convertite = [direzioni[m] for m in mosse]
+    return mosse_convertite    
 
 def calcola_mossa(corpo, mossa, righe, colonne):
     """
