@@ -4,6 +4,7 @@ Created on Mon Sep 11 16:44:07 2023
 
 @author: angel
 """
+import sys
 
 def converti_mosse(mosse):
     """
@@ -166,7 +167,8 @@ def termina(lunghezza_serpente):
     La lunghezza del serpente.
 
     """
-    pass
+    print(f"La lunghezza del serpente è di {lunghezza_serpente} quadrato/i" )    
+    sys.exit()
 
 def play(start, mosse, righe, colonne):
     """
