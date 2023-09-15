@@ -29,3 +29,4 @@ class test(unittest.TestCase):
         result = mangia([[1,1]],[],[1,2],campo_da_gioco)
         self.assertEqual(result[0],[[1,2],[1,2]])
         self.assertEqual(result[1],[[1,1]])
+        self.assertEqual(campo_da_gioco["food"], [[2, 2], [3, 2]])
