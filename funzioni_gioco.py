@@ -123,7 +123,9 @@ def mangia(corpo, scia_serpente, posizione_nuova , campo_da_gioco):
 
     """
     campo_da_gioco["food"].remove(posizione_nuova)
-    scia_serpente.insert(0,corpo[-1])
+    coda = corpo[-1]
+    scia_serpente.insert(0,coda)
+    corpo.remove(coda)
     corpo = [posizione_nuova,posizione_nuova]+corpo
     return corpo, scia_serpente
 
