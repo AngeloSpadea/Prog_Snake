@@ -166,9 +166,8 @@ def termina(lunghezza_serpente):
     -------
     La lunghezza del serpente.
 
-    """
-    print(f"La lunghezza del serpente è di {lunghezza_serpente} quadrato/i" )    
-    sys.exit()
+    """    
+    sys.exit(f"GAME OVER. \n La lunghezza del serpente è di {lunghezza_serpente} quadrato/i")
 
 def play(start, mosse, righe, colonne):
     """
