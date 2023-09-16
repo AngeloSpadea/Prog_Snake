@@ -1,5 +1,5 @@
 import unittest
-from funzioni_gioco import calcola_mossa, converti_mosse, mangia
+from funzioni_gioco import calcola_mossa, converti_mosse, mangia, muovi
 
 campo_da_gioco={'rows': 4,
                     'cols': 6,
@@ -30,3 +30,18 @@ class test(unittest.TestCase):
         self.assertEqual(result[0],[[1,2],[1,2]])
         self.assertEqual(result[1],[[1,1]])
         self.assertEqual(campo_da_gioco["food"], [[2, 2], [3, 2]])
+    
+    def test_muovi_start(self):
+        result = muovi([[3,4]], [], [2,4])
+        self.assertEqual(result[0], [[2,4]])
+        self.assertEqual(result[1], [[3,4]])
+
+    def test_muovi(self):
+        result = muovi([[2,4]], [[3,4]], [2,3])
+        self.assertEqual(result[0], [[2,3]])
+        self.assertEqual(result[1], [[2,4], [3,4]]) 
+   
+    def test_muovi_da_cresciuto(self):
+        result = muovi([[1,5], [2,5]], [[3,5]], [1,4])
+        self.assertEqual(result[0], [[1,5], [1,4]])
+        self.assertEqual(result[1], [[2,5], [3,5]]) 
