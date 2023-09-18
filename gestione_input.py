@@ -24,7 +24,18 @@ def carico_dati(game_file):
     una tupla con le liste dei dati necessari.
 
     """
-    pass
+    f = open(game_file)
+    game = json.load(f)
+    start = game['start']
+    mosse = game['moves']
+    field_out = game['field_out']
+    g = open(game['field_in'])
+    field = json.load(g)
+    righe = field['rows']
+    colonne = field['cols']
+    food = field['food']
+    blocks = field['blocks']        
+    return start, mosse, food, blocks, righe, colonne, field_out
 
 def restituisco_dati(final_field):
     """
