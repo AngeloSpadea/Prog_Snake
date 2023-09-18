@@ -1,5 +1,6 @@
 import unittest
 from funzioni_gioco import calcola_mossa, converti_mosse, mangia, muovi
+from gestione_input import carico_dati
 
 campo_da_gioco={'rows': 4,
                     'cols': 6,
@@ -45,3 +46,13 @@ class test(unittest.TestCase):
         result = muovi([[1,5], [2,5]], [[3,5]], [1,4])
         self.assertEqual(result[0], [[1,5], [1,4]])
         self.assertEqual(result[1], [[2,5], [3,5]]) 
+    
+    def test_carico_dati(self):
+        result=carico_dati('file_gioco.json')
+        self.assertEqual(result[0], [5,3])
+        self.assertEqual(result[1], "N N N E SE SE SE E E N N N W W W W W W W S S S S S S SW SW SW")
+        self.assertEqual(result[2], [[0, 4],[2, 2],[3, 2]])
+        self.assertEqual(result[3], [[0, 2],[1, 1],[3, 1]])
+        self.assertEqual(result[4], 4)
+        self.assertEqual(result[5], 6)
+        self.assertEqual(result[6], 'field_out_01.json')
