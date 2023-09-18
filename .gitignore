@@ -1,1 +1,6 @@
 __pycache__/*
+.DS_Store
+.idea/*
+field_in.json
+file_gioco.json
+output/*

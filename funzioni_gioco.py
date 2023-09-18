@@ -33,7 +33,8 @@ def converti_mosse(mosse):
         'SE': [1, 1],
         'SW': [1, -1]
     }
-    mosse_convertite = [direzioni[m] for m in mosse]
+    mosse_senza_spazi = mosse.split() 
+    mosse_convertite = [direzioni[m] for m in mosse_senza_spazi]
     return mosse_convertite    
 
 def calcola_mossa(corpo, mossa, righe, colonne):
@@ -63,7 +64,7 @@ def calcola_mossa(corpo, mossa, righe, colonne):
     nuova_posizione = [(corpo[0][0] + mossa[0]) % righe, (corpo[0][1] + mossa[1]) % colonne]
     return nuova_posizione
     
-def controlla(corpo, scia_serpente, posizione_nuova, campo_da_gioco):
+def controlla(corpo, scia_serpente, posizione_nuova, mosse, food, blocks, righe, colonne):
     """
     Funzione che controlla se la posizione nuova è:
         1) un blocco ("block"): allora il gioco deve terminare
@@ -129,7 +130,7 @@ def mangia(corpo, scia_serpente, posizione_nuova , campo_da_gioco):
     corpo = [posizione_nuova,posizione_nuova]+corpo
     return corpo, scia_serpente
 
-def muovi(corpo, scia_serpente, posizione_nuova , campo_da_gioco):
+def muovi(corpo, scia_serpente, posizione_nuova):
     """
     Funzione che fa muovere il serpente
 
@@ -156,7 +157,11 @@ def muovi(corpo, scia_serpente, posizione_nuova , campo_da_gioco):
         lista di tutte le caselle in cui il corpo del serpente è passato aggiornata.
 
     """
-    pass
+    coda = corpo.pop(-1)
+    scia_serpente.insert(0,coda) 
+    corpo.append(posizione_nuova)
+    print(f"il corpo è:{corpo} e la scia è: {scia_serpente}")
+    return corpo, scia_serpente
 
 def termina(lunghezza_serpente):
     """
@@ -174,7 +179,7 @@ def termina(lunghezza_serpente):
     """    
     sys.exit(f"GAME OVER. \n La lunghezza del serpente è di {lunghezza_serpente} quadrato/i")
 
-def play(start, mosse, righe, colonne):
+def play(start, mosse, food, blocks, righe, colonne):
     """
     Funzione che gestisce il gioco: converte le mosse, controlla se la 
     posizione iniziale è una casella valida e per ogni mossa gestisce se il 
@@ -201,4 +206,12 @@ def play(start, mosse, righe, colonne):
         lista di tutte le caselle in cui il corpo del serpente è passato aggiornata.
 
     """
-    pass
+    mosse_convertite = converti_mosse(mosse)
+    scia_serpente=[]
+    corpo=[start]
+    corpo, scia_serpente = controlla(corpo, scia_serpente, start, mosse, food, blocks, righe, colonne)    
+    for mossa in mosse_convertite:
+        posizione_nuova = calcola_mossa(corpo, mossa, righe, colonne)
+        corpo, scia_serpente = controlla(corpo, scia_serpente, posizione_nuova, mosse, food, blocks, righe, colonne)
+    print(f"La scia del serpente è:{corpo},   {scia_serpente}")
+    return corpo, scia_serpente

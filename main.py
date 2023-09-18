@@ -9,10 +9,10 @@ import gestione_input as gi
 import funzioni_gioco as fg
 
 #prendo i dati dai file di gioco
-start, mosse, righe, colonne = gi.carico_dati('file_gioco.json')
+start, mosse, food, blocks, righe, colonne, field_out = gi.carico_dati('file_gioco.json')
 
 #gioco secondo i dati di gioco ottenuti
-final_field = fg.play(start, mosse, righe, colonne)
+final_field = fg.play(start, mosse, food, blocks, righe, colonne)
 
 #restituisco i risultati
-gi.restituisco_dati(final_field)
+gi.restituisco_dati(field_out)
