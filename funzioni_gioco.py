@@ -63,7 +63,7 @@ def calcola_mossa(corpo, mossa, righe, colonne):
     nuova_posizione = [(corpo[0][0] + mossa[0]) % righe, (corpo[0][1] + mossa[1]) % colonne]
     return nuova_posizione
     
-def controlla(corpo, scia_serpente, posizione_nuova, campo_da_gioco):
+def controlla(corpo, scia_serpente, posizione_nuova, mosse, food, blocks, righe, colonne):
     """
     Funzione che controlla se la posizione nuova è:
         1) un blocco ("block"): allora il gioco deve terminare
@@ -205,4 +205,12 @@ def play(start, mosse, food, blocks, righe, colonne):
         lista di tutte le caselle in cui il corpo del serpente è passato aggiornata.
 
     """
-    pass
+    mosse_convertite = converti_mosse(mosse)
+    scia_serpente=[]
+    corpo=[start]
+    corpo, scia_serpente = controlla(corpo, scia_serpente, start, mosse, food, blocks, righe, colonne)    
+    for mossa in mosse_convertite:
+        posizione_nuova = calcola_mossa(corpo, mossa, righe, colonne)
+        corpo, scia_serpente = controlla(corpo, scia_serpente, posizione_nuova, mosse, food, blocks, righe, colonne)
+    print(f"La scia del serpente è:{corpo},   {scia_serpente}")
+    return corpo, scia_serpente
