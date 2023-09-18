@@ -33,7 +33,8 @@ def converti_mosse(mosse):
         'SE': [1, 1],
         'SW': [1, -1]
     }
-    mosse_convertite = [direzioni[m] for m in mosse]
+    mosse_senza_spazi = mosse.split() 
+    mosse_convertite = [direzioni[m] for m in mosse_senza_spazi]
     return mosse_convertite    
 
 def calcola_mossa(corpo, mossa, righe, colonne):
