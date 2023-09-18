@@ -26,11 +26,11 @@ def carico_dati(game_file):
     """
     f = open(game_file)
     game = json.load(f)
-    start = game['start']
-    mosse = game['moves']
     field_out = game['field_out']
     g = open(game['field_in'])
     field = json.load(g)
+    start = game['start']
+    mosse = game['moves']    
     righe = field['rows']
     colonne = field['cols']
     food = field['food']

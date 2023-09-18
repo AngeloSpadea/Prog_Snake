@@ -178,7 +178,7 @@ def termina(lunghezza_serpente):
     """    
     sys.exit(f"GAME OVER. \n La lunghezza del serpente è di {lunghezza_serpente} quadrato/i")
 
-def play(start, mosse, righe, colonne):
+def play(start, mosse, food, blocks, righe, colonne):
     """
     Funzione che gestisce il gioco: converte le mosse, controlla se la 
     posizione iniziale è una casella valida e per ogni mossa gestisce se il 
