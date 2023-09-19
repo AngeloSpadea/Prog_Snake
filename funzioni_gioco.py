@@ -93,7 +93,16 @@ def controlla(corpo, scia_serpente, posizione_nuova, mosse, food, blocks, righe,
     scia_serpente : list
         lista di tutte le caselle in cui il corpo del serpente è passato.
     """
-    pass
+    lunghezza_serpente= len(corpo)
+    if posizione_nuova in blocks:
+        termina(lunghezza_serpente)
+    elif posizione_nuova in food:
+        corpo, scia_serpente = mangia(corpo, scia_serpente, posizione_nuova, food)
+        print("Il serpente ha mangiato il cibo!")
+    else:
+        corpo, scia_serpente = muovi(corpo, scia_serpente, posizione_nuova)
+        print("mi sono mosso")
+    return corpo, scia_serpente
 
 def mangia(corpo, scia_serpente, posizione_nuova , campo_da_gioco):
     """
