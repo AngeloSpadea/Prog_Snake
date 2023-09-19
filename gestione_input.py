@@ -54,7 +54,7 @@ def restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, final_o
     None.
 
     """
-    black_image = Image.new("RGB", (righe, colonne), (0, 0, 0))
+    black_image = Image.new("RGB", (colonne, righe), (0, 0, 0))
     
     for x, y in corpo:
         black_image.putpixel((x, y), (0, 255, 0))
@@ -68,4 +68,4 @@ def restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, final_o
     for x, y in blocks:
         black_image.putpixel((x, y), (255, 0, 0))
     
-    black_image.save(field_out)
+    black_image.save("field_out.png")

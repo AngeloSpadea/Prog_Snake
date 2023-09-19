@@ -24,14 +24,14 @@ def converti_mosse(mosse):
 
     """
     direzioni = {
-        'N': [-1, 0],
-        'S': [1, 0],
-        'E': [0, 1],
-        'W': [0, -1],
-        'NE': [-1, 1],
+        'N': [0, -1],
+        'S': [0, 1],
+        'E': [1, 0],
+        'W': [-1, 0],
+        'NE': [1, -1],
         'NW': [-1, -1],
         'SE': [1, 1],
-        'SW': [1, -1]
+        'SW': [-1, 1]
     }
     mosse_senza_spazi = mosse.split() 
     mosse_convertite = [direzioni[m] for m in mosse_senza_spazi]
@@ -61,7 +61,7 @@ def calcola_mossa(corpo, mossa, righe, colonne):
         posizione della testa
 
     """
-    nuova_posizione = [(corpo[0][0] + mossa[0]) % righe, (corpo[0][1] + mossa[1]) % colonne]
+    nuova_posizione = [(corpo[0][0] + mossa[0]) % colonne, (corpo[0][1] + mossa[1]) % righe]
     return nuova_posizione
     
 def controlla(corpo, scia_serpente, posizione_nuova, mosse, food, blocks, righe, colonne):
@@ -104,7 +104,7 @@ def controlla(corpo, scia_serpente, posizione_nuova, mosse, food, blocks, righe,
         print("mi sono mosso")
     return corpo, scia_serpente
 
-def mangia(corpo, scia_serpente, posizione_nuova , campo_da_gioco):
+def mangia(corpo, scia_serpente, posizione_nuova, food):
     """
     Funzione che fa mangiare al serpente il cibo, il quale viene rimosso dalla 
     lista del cibo.
@@ -132,11 +132,12 @@ def mangia(corpo, scia_serpente, posizione_nuova , campo_da_gioco):
         lista di tutte le caselle in cui il corpo del serpente è passato aggiornata.
 
     """
-    campo_da_gioco["food"].remove(posizione_nuova)
+    food.remove(posizione_nuova)
     coda = corpo[-1]
     scia_serpente.insert(0,coda)
     corpo.remove(coda)
     corpo = [posizione_nuova,posizione_nuova]+corpo
+    print(f"il corpo è:{corpo} e la scia è: {scia_serpente}")
     return corpo, scia_serpente
 
 def muovi(corpo, scia_serpente, posizione_nuova):
@@ -185,8 +186,8 @@ def termina(lunghezza_serpente):
     -------
     La lunghezza del serpente.
 
-    """    
-    sys.exit(f"GAME OVER. \n La lunghezza del serpente è di {lunghezza_serpente} quadrato/i")
+    """  
+    sys.exit(f"Gioco terminato.\n La lunghezza del serpente è di {lunghezza_serpente} quadrato/i")
 
 def play(start, mosse, food, blocks, righe, colonne):
     """
@@ -218,9 +219,9 @@ def play(start, mosse, food, blocks, righe, colonne):
     mosse_convertite = converti_mosse(mosse)
     scia_serpente=[]
     corpo=[start]
-    corpo, scia_serpente = controlla(corpo, scia_serpente, start, mosse, food, blocks, righe, colonne)    
+    #corpo, scia_serpente = controlla(corpo, scia_serpente, start, mosse, food, blocks, righe, colonne)    
     for mossa in mosse_convertite:
         posizione_nuova = calcola_mossa(corpo, mossa, righe, colonne)
         corpo, scia_serpente = controlla(corpo, scia_serpente, posizione_nuova, mosse, food, blocks, righe, colonne)
-    print(f"La scia del serpente è:{corpo},   {scia_serpente}")
+    #print(f"La scia del serpente è:{corpo},   {scia_serpente}")
     return corpo, scia_serpente, food, blocks, righe, colonne
