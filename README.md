@@ -98,21 +98,21 @@ pip install -r requirements.txt
 [✓] Implementazione Funzione<br>
 [✓] Implementazione Test<br>
 100%|██████████████████████████████| 2/2 [00:00 Sep 15 2023, Commits: 10,11,12 ]<br>
-
+___
 8 __Termina (Angelo)__
 [✓] Implementazione Funzione<br>
 [✗] Implementazione Test<br>
  50%|███████████████---------------| 1/2 [00:00 Sep 15 2023, Commits: 8 ]<br>
-
+___
 9 __Muovi (Martina)__
 [✓] Implementazione Funzione<br>
 [✓] Implementazione Test<br>
 100%|██████████████████████████████| 2/2 [00:00 Sep 16 2023, Commits: 13,14 ]<br>
 
 ### Funzioni Secondarie di Play
-
+___
 10 __Calcolo_mossa (Martina)__
-> def calcola_mossa(): nel file funzioni_gioco.py riga 40
+> def [calcola_mossa()]: nel file funzioni_gioco.py riga 40
 [Vai a calcola_mossa ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L40)
 
 [✓] Implementazione Funzione<br>
