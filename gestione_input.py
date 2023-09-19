@@ -6,6 +6,7 @@ Created on Mon Sep 11 18:00:31 2023
 """
 
 import json
+from PIL import Image
 
 def carico_dati(game_file):
     """
@@ -37,7 +38,7 @@ def carico_dati(game_file):
     blocks = field['blocks']        
     return start, mosse, food, blocks, righe, colonne, field_out
 
-def restituisco_dati(final_field):
+def restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, final_field):
     """
     Funzione che restituisce i dati finali
 
@@ -53,18 +54,21 @@ def restituisco_dati(final_field):
     None.
 
     """
-    black_image = Image.new("RGB", (righe, colonne), (0, 0, 0))
+    lunghezza_serpente= len(corpo)
+    print(lunghezza_serpente)
+
+    black_image = Image.new("RGB", (colonne, righe), (0, 0, 0))
+    
+    for x, y in scia_serpente:
+        black_image.putpixel((y, x), (128, 128, 12))
     
     for x, y in corpo:
-        black_image.putpixel((x, y), (0, 255, 0))
-        
-    for x, y in scia_serpente:
-        black_image.putpixel((x, y), (128, 128, 12))
+        black_image.putpixel((y, x), (0, 255, 0))          
     
     for x, y in food:
-        black_image.putpixel((x, y), (255, 128, 0))
+        black_image.putpixel((y, x), (255, 128, 0))
     
     for x, y in blocks:
-        black_image.putpixel((x, y), (255, 0, 0))
+        black_image.putpixel((y, x), (255, 0, 0))
     
-    black_image.save(field_out)
+    black_image.save("output/"+final_field)
