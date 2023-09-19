@@ -116,7 +116,11 @@ pip install -r requirements.txt
 [✓] Implementazione Test<br>
 100%|██████████████████████████████| 2/2 [00:00 Sep 12 2023, Commits: 3,4 ]<br>
 ##### Descrizione
-
+Funzione che calcola la nuova posizione della testa tenendo conto della dimensione del campo da gioco.
+##### Test 1
+Nel Test verifichiamo che il movimento sia quello corretto. I paramentri di ingresso di calcolo mossa sono il corpo composto dalla sola testa nella posizione (2,0), la direzione che deve prendere il serpente in questo caso est rappresentato dal vettore (0,1) e infine le dimensioni del campo prima le righe e poi le collone. Inserendo un qualsiasi corpo del serpente e un vettore direzione il risultato del test sarà positivo se la testa del serpente si muovera nella direzione corretta. Esempio testa (2,0) direzione (1,0) risultato la posizione della testa si troverà in (2,1).
+##### Test 2
+Nel Test verifichiamo cosa succede se la testa del serpente esce fuori dal bordo del campo. I paramentri di ingresso di calcolo mossa sono il corpo composto dalla sola testa nella posizione (3,5), la direzione che deve prendere il serpente in questo caso nord-est rappresentato dal vettore (1,1) e infine le dimensioni del campo prima le righe 4 e poi le collone 6. La nuova posizione calcolata dalla funzione dovrebbe essere (4,6) ma considerando che le collone sono 6 partendo da 0 la posizione (4,6) non è accettabile perchè il serpente attraverserà il bordo e si ritrovarà dall'altra parte nel campo, posizione (0,0).
 
 ### Funzioni principali di gestione_input
 [✓] Implementazione carico_dati<br>
