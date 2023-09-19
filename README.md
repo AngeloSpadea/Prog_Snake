@@ -58,91 +58,92 @@ pip install -r requirements.txt
 
 # Avanzamento del progetto 
 
-### Utility
+### `Utility`
 
-#### Struttura Docker
+#### `Struttura Docker`
 [✗] Implementazione<br> 
   0%|------------------------------| 0/1 [00:00 ___________, Commits: _ ]<br>
 
-#### Scheletro del Readme
+#### `Scheletro del Readme`
 [✓] Scrittura Introduzione<br>
 [✗] Scrittura Funzionamento<br>
 [✗] Scrittura Istruzioni di installazione<br>
 [✗] Aggiornamento Stato progetto<br>
 100%|██████------------------------| 1/4 [00:00 Sep 15 2023, Commits: 5,6 ]<br>
 
-#### gitignore
+#### `gitignore`
 [✓] Scrittura<br>
 100%|██████████████████████████████| 1/1 [00:00 Sep 15 2023, Commits: 7 ]<br>
 
 ### Funzioni principali di Funzioni_gioco
 
-#### Play(Angelo)
+#### `Play(Angelo)`
 [✓] Implementazione Funzione<br>
 [✓] Implementazione Test<br>
 100%|██████████████████████████████| 2/2 [00:00 Sep 18 2023, Commits: 18]<br>
 
-#### Converti_mossa(Martina)
+#### `Converti_mossa(Martina)`
 [✓] Implementazione Funzione<br>
 [✓] Implementazione Test<br>
 100%|██████████████████████████████| 2/2 [00:00 Sep 15 2023, Commits: 5,6 ]<br>
 
-#### Controlla(Antonio)
+#### `Controlla(Antonio)`
 [✗] Implementazione Funzione<br>
 [✗] Implementazione Test<br>
   0%|------------------------------| 0/2 [00:00 ___________, Commits: _ ]<br>
 
 ### Funzioni Secondarie di Controlla
 
-#### Mangia (Antonio)
+#### `Mangia (Antonio)`
 [✓] Implementazione Funzione<br>
 [✓] Implementazione Test<br>
 100%|██████████████████████████████| 2/2 [00:00 Sep 15 2023, Commits: 10,11,12 ]<br>
 
-#### Termina (Angelo)
+#### `Termina (Angelo)`
 [✓] Implementazione Funzione<br>
 [✗] Implementazione Test<br>
  50%|███████████████---------------| 1/2 [00:00 Sep 15 2023, Commits: 8 ]<br>
 
-#### Muovi (Martina)
+#### `Muovi (Martina)`
 [✓] Implementazione Funzione<br>
 [✓] Implementazione Test<br>
 100%|██████████████████████████████| 2/2 [00:00 Sep 16 2023, Commits: 13,14 ]<br>
 
 ### Funzioni Secondarie di Play
 
-#### Calcolo_mossa (Martina)
+#### `Calcolo_mossa (Martina)`
 [✓] Implementazione Funzione<br>
 [✓] Implementazione Test<br>
 100%|██████████████████████████████| 2/2 [00:00 Sep 12 2023, Commits: 3,4 ]<br>
 ##### Descrizione
 > def calcola_mossa(): nel file funzioni_gioco.py riga 40
+
 Funzione che calcola la nuova posizione della testa tenendo conto della dimensione del campo da gioco.
 
 ##### Test 1
 > test_verifico_calcola_mossa nel file test_01.py riga 13
 
-Nel Test verifichiamo che il movimento sia quello corretto. I paramentri di ingresso di calcolo mossa sono il corpo composto dalla sola testa nella posizione (2,0), la direzione che deve prendere il serpente in questo caso est rappresentato dal vettore (0,1) e infine le dimensioni del campo prima le righe e poi le collone. Inserendo un qualsiasi corpo del serpente e un vettore direzione il risultato del test sarà positivo se la testa del serpente si muovera nella direzione corretta. Esempio testa (2,0) direzione (1,0) risultato la posizione della testa si troverà in (2,1).
+Nel Test verifichiamo che il movimento sia quello corretto. I paramentri di ingresso di calcolo mossa sono il `corpo` composto dalla sola testa nella posizione (2,0), la `direzione` che deve prendere il serpente in questo caso est rappresentato dal vettore (0,1) e infine le `dimensioni del campo` prima le righe e poi le collone. Inserendo un qualsiasi `corpo del serpente` e un `vettore direzione` il `risultato del test` sarà positivo se la testa del serpente si muovera nella `direzione corretta`. Esempio `testa` (2,0) `direzione` (1,0) `risultato` la posizione della testa si troverà in (2,1).
 ##### Test 2
 > test_verifico_calcola_mossa_con_uscita_dal_bordo nel file test_01.py riga 17
 
-Nel Test verifichiamo cosa succede se la testa del serpente esce fuori dal bordo del campo. I paramentri di ingresso di calcolo mossa sono il corpo composto dalla sola testa nella posizione (3,5), la direzione che deve prendere il serpente in questo caso nord-est rappresentato dal vettore (1,1) e infine le dimensioni del campo prima le righe 4 e poi le collone 6. La nuova posizione calcolata dalla funzione dovrebbe essere (4,6) ma considerando che le collone sono 6 partendo da 0 la posizione (4,6) non è accettabile perchè il serpente attraverserà il bordo e si ritrovarà dall'altra parte nel campo, posizione (0,0).
+Nel Test verifichiamo cosa succede se la testa del serpente esce fuori dal bordo del campo. I paramentri di ingresso di calcolo mossa sono il `corpo` composto dalla sola testa nella posizione (3,5), la `direzione` che deve prendere il serpente in questo caso nord-est rappresentato dal vettore (1,1) e infine le `dimensioni del campo` prima le righe 4 e poi le collone 6. La nuova `posizione` calcolata dalla funzione dovrebbe essere (4,6) ma considerando che le collone sono 6 partendo da 0 la posizione (4,6) non è accettabile perchè il serpente `attraverserà il bordo` e si ritrovarà dall'altra parte nel campo, `posizione` (0,0).
 
 ### Funzioni principali di gestione_input
 [✓] Implementazione carico_dati<br>
 [✓] Implementazione restituisco_dati<br>
 100%|██████████████████████████████| 2/2 [00:00 Sep 18 2023, Commits: 16,17]<br>
 
-#### carico_dati (Angelo)
+#### `carico_dati (Angelo)`
 [✓] Implementazione Test<br>
 100%|██████████████████████████████| 1/1 [00:00 Sep 18 2023, Commits: 19 ]<br>
 
-#### restituisco_dati (ignoto)
+#### `restituisco_dati (ignoto)`
 [✗] Implementazione Funzione<br>
 [✗] Implementazione Test<br>
   0%|------------------------------| 0/2 [00:00 ___________, Commits: _ ]<br>
 
-### Main (Angelo)
+### `Main (Angelo)`
 [✗] Implementazione Funzione<br>
 [✗] Implementazione Test<br>
   0%|------------------------------| 0/2 [00:00 Sep  6 2023, Commits: 1 ]<br>
