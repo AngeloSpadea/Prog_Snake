@@ -6,6 +6,7 @@ Created on Mon Sep 11 18:00:31 2023
 """
 
 import json
+from PIL import Image
 
 def carico_dati(game_file):
     """
@@ -37,7 +38,7 @@ def carico_dati(game_file):
     blocks = field['blocks']        
     return start, mosse, food, blocks, righe, colonne, field_out
 
-def restituisco_dati(final_field):
+def restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, final_out):
     """
     Funzione che restituisce i dati finali
 

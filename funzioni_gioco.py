@@ -223,4 +223,4 @@ def play(start, mosse, food, blocks, righe, colonne):
         posizione_nuova = calcola_mossa(corpo, mossa, righe, colonne)
         corpo, scia_serpente = controlla(corpo, scia_serpente, posizione_nuova, mosse, food, blocks, righe, colonne)
     print(f"La scia del serpente è:{corpo},   {scia_serpente}")
-    return corpo, scia_serpente
+    return corpo, scia_serpente, food, blocks, righe, colonne
