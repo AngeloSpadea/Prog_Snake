@@ -38,7 +38,7 @@ def carico_dati(game_file):
     blocks = field['blocks']        
     return start, mosse, food, blocks, righe, colonne, field_out
 
-def restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, final_out):
+def restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, final_field):
     """
     Funzione che restituisce i dati finali
 
@@ -68,4 +68,4 @@ def restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, final_o
     for x, y in blocks:
         black_image.putpixel((x, y), (255, 0, 0))
     
-    black_image.save("field_out.png")
+    black_image.save("output/"+final_field)
