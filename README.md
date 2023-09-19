@@ -60,71 +60,72 @@ pip install -r requirements.txt
 
 ### Utility
 
-__Struttura Docker__
+1 __Struttura Docker__
 [✗] Implementazione<br> 
   0%|------------------------------| 0/1 [00:00 ___________, Commits: _ ]<br>
 
-__Scheletro del Readme__
+2 __Scheletro del Readme__
 [✓] Scrittura Introduzione<br>
 [✗] Scrittura Funzionamento<br>
 [✗] Scrittura Istruzioni di installazione<br>
 [✗] Aggiornamento Stato progetto<br>
 100%|██████------------------------| 1/4 [00:00 Sep 15 2023, Commits: 5,6 ]<br>
 
-__gitignore__
+3 __gitignore__
 [✓] Scrittura<br>
 100%|██████████████████████████████| 1/1 [00:00 Sep 15 2023, Commits: 7 ]<br>
 
 ### Funzioni principali di Funzioni_gioco
 
-__Play(Angelo)__
+4 __Play(Angelo)__
 [✓] Implementazione Funzione<br>
 [✓] Implementazione Test<br>
 100%|██████████████████████████████| 2/2 [00:00 Sep 18 2023, Commits: 18]<br>
 
-__Converti_mossa(Martina)__
+5 __Converti_mossa(Martina)__
 [✓] Implementazione Funzione<br>
 [✓] Implementazione Test<br>
 100%|██████████████████████████████| 2/2 [00:00 Sep 15 2023, Commits: 5,6 ]<br>
 
-__Controlla(Antonio)__
+6 __Controlla(Antonio)__
 [✗] Implementazione Funzione<br>
 [✗] Implementazione Test<br>
   0%|------------------------------| 0/2 [00:00 ___________, Commits: _ ]<br>
 
 ### Funzioni Secondarie di Controlla
 
-__Mangia (Antonio)__
+7 __Mangia (Antonio)__
 [✓] Implementazione Funzione<br>
 [✓] Implementazione Test<br>
 100%|██████████████████████████████| 2/2 [00:00 Sep 15 2023, Commits: 10,11,12 ]<br>
 
-__Termina (Angelo)__
+8 __Termina (Angelo)__
 [✓] Implementazione Funzione<br>
 [✗] Implementazione Test<br>
  50%|███████████████---------------| 1/2 [00:00 Sep 15 2023, Commits: 8 ]<br>
 
-__Muovi (Martina)__
+9 __Muovi (Martina)__
 [✓] Implementazione Funzione<br>
 [✓] Implementazione Test<br>
 100%|██████████████████████████████| 2/2 [00:00 Sep 16 2023, Commits: 13,14 ]<br>
 
 ### Funzioni Secondarie di Play
 
-__Calcolo_mossa (Martina)__
+10 __Calcolo_mossa (Martina)__
 > def calcola_mossa(): nel file funzioni_gioco.py riga 40
 
 [✓] Implementazione Funzione<br>
 [✓] Implementazione Test<br>
 100%|██████████████████████████████| 2/2 [00:00 Sep 12 2023, Commits: 3,4 ]<br>
-- `Descrizione`
+`Descrizione`
+
 Funzione che calcola la nuova posizione della testa tenendo conto della dimensione del campo da gioco.
 
-- `Test 1`
+`Test 1`
 > test_verifico_calcola_mossa nel file test_01.py riga 13
 
 Nel Test verifichiamo che il movimento sia quello corretto. I paramentri di ingresso di calcolo mossa sono il `corpo` composto dalla sola testa nella posizione (2,0), la `direzione` che deve prendere il serpente in questo caso est rappresentato dal vettore (0,1) e infine le `dimensioni del campo` prima le righe e poi le collone. Inserendo un qualsiasi `corpo del serpente` e un `vettore direzione` il `risultato del test` sarà positivo se la testa del serpente si muovera nella `direzione corretta`. Esempio `testa` (2,0) `direzione` (1,0) `risultato` la posizione della testa si troverà in (2,1).
-- `Test 2`
+`Test 2`
 > test_verifico_calcola_mossa_con_uscita_dal_bordo nel file test_01.py riga 17
 
 Nel Test verifichiamo cosa succede se la testa del serpente esce fuori dal bordo del campo. I paramentri di ingresso di calcolo mossa sono il `corpo` composto dalla sola testa nella posizione (3,5), la `direzione` che deve prendere il serpente in questo caso nord-est rappresentato dal vettore (1,1) e infine le `dimensioni del campo` prima le righe 4 e poi le collone 6. La nuova `posizione` calcolata dalla funzione dovrebbe essere (4,6) ma considerando che le collone sono 6 partendo da 0 la posizione (4,6) non è accettabile perchè il serpente `attraverserà il bordo` e si ritrovarà dall'altra parte nel campo, `posizione` (0,0).
@@ -134,11 +135,11 @@ Nel Test verifichiamo cosa succede se la testa del serpente esce fuori dal bordo
 [✓] Implementazione restituisco_dati<br>
 100%|██████████████████████████████| 2/2 [00:00 Sep 18 2023, Commits: 16,17]<br>
 
-__carico_dati (Angelo)__
+11 __carico_dati (Angelo)__
 [✓] Implementazione Test<br>
 100%|██████████████████████████████| 1/1 [00:00 Sep 18 2023, Commits: 19 ]<br>
 
-__restituisco_dati (ignoto)__
+12 __restituisco_dati (ignoto)__
 [✗] Implementazione Funzione<br>
 [✗] Implementazione Test<br>
   0%|------------------------------| 0/2 [00:00 ___________, Commits: _ ]<br>
