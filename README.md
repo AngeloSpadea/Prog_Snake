@@ -113,6 +113,7 @@ pip install -r requirements.txt
 
 10 __Calcolo_mossa (Martina)__
 > def calcola_mossa(): nel file funzioni_gioco.py riga 40
+[Vai a calcola_mossa ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L40)
 
 [✓] Implementazione Funzione<br>
 [✓] Implementazione Test<br>
