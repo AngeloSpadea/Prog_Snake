@@ -169,7 +169,7 @@ def muovi(corpo, scia_serpente, posizione_nuova):
     """
     coda = corpo.pop(-1)
     scia_serpente.insert(0,coda) 
-    corpo.append(posizione_nuova)
+    corpo = [posizione_nuova]+corpo
     print(f"il corpo è:{corpo} e la scia è: {scia_serpente}")
     return corpo, scia_serpente
 
