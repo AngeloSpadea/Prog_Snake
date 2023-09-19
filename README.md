@@ -59,41 +59,41 @@ pip install -r requirements.txt
 # Avanzamento del progetto 
 
 ### Utility
-
+___
 1 __Struttura Docker__
 [✗] Implementazione<br> 
   0%|------------------------------| 0/1 [00:00 ___________, Commits: _ ]<br>
-
+___
 2 __Scheletro del Readme__
 [✓] Scrittura Introduzione<br>
 [✗] Scrittura Funzionamento<br>
 [✗] Scrittura Istruzioni di installazione<br>
 [✗] Aggiornamento Stato progetto<br>
 100%|██████------------------------| 1/4 [00:00 Sep 15 2023, Commits: 5,6 ]<br>
-
+___
 3 __gitignore__
 [✓] Scrittura<br>
 100%|██████████████████████████████| 1/1 [00:00 Sep 15 2023, Commits: 7 ]<br>
 
 ### Funzioni principali di Funzioni_gioco
-
+___
 4 __Play(Angelo)__
 [✓] Implementazione Funzione<br>
 [✓] Implementazione Test<br>
 100%|██████████████████████████████| 2/2 [00:00 Sep 18 2023, Commits: 18]<br>
-
+___
 5 __Converti_mossa(Martina)__
 [✓] Implementazione Funzione<br>
 [✓] Implementazione Test<br>
 100%|██████████████████████████████| 2/2 [00:00 Sep 15 2023, Commits: 5,6 ]<br>
-
+___
 6 __Controlla(Antonio)__
 [✗] Implementazione Funzione<br>
 [✗] Implementazione Test<br>
   0%|------------------------------| 0/2 [00:00 ___________, Commits: _ ]<br>
 
 ### Funzioni Secondarie di Controlla
-
+___
 7 __Mangia (Antonio)__
 [✓] Implementazione Funzione<br>
 [✓] Implementazione Test<br>
@@ -112,7 +112,8 @@ ___
 ### Funzioni Secondarie di Play
 ___
 10 __Calcolo_mossa (Martina)__
-> def [calcola_mossa()]: nel file funzioni_gioco.py riga 40
+> il nome della funzione è def calcola_mossa(parametri): che si trova nel file funzioni_gioco.py alla riga 40
+
 [Vai a calcola_mossa ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L40)
 
 [✓] Implementazione Funzione<br>
@@ -135,11 +136,11 @@ Nel Test verifichiamo cosa succede se la testa del serpente esce fuori dal bordo
 [✓] Implementazione carico_dati<br>
 [✓] Implementazione restituisco_dati<br>
 100%|██████████████████████████████| 2/2 [00:00 Sep 18 2023, Commits: 16,17]<br>
-
+___
 11 __carico_dati (Angelo)__
 [✓] Implementazione Test<br>
 100%|██████████████████████████████| 1/1 [00:00 Sep 18 2023, Commits: 19 ]<br>
-
+___
 12 __restituisco_dati (ignoto)__
 [✗] Implementazione Funzione<br>
 [✗] Implementazione Test<br>
