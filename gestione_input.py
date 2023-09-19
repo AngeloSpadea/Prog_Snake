@@ -60,15 +60,15 @@ def restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, final_f
     black_image = Image.new("RGB", (colonne, righe), (0, 0, 0))
     
     for x, y in scia_serpente:
-        black_image.putpixel((x, y), (128, 128, 12))
+        black_image.putpixel((y, x), (128, 128, 12))
     
     for x, y in corpo:
-        black_image.putpixel((x, y), (0, 255, 0))          
+        black_image.putpixel((y, x), (0, 255, 0))          
     
     for x, y in food:
-        black_image.putpixel((x, y), (255, 128, 0))
+        black_image.putpixel((y, x), (255, 128, 0))
     
     for x, y in blocks:
-        black_image.putpixel((x, y), (255, 0, 0))
+        black_image.putpixel((y, x), (255, 0, 0))
     
     black_image.save("output/"+final_field)
