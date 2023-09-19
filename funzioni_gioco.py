@@ -93,16 +93,16 @@ def controlla(corpo, scia_serpente, posizione_nuova, mosse, food, blocks, righe,
     scia_serpente : list
         lista di tutte le caselle in cui il corpo del serpente è passato.
     """
-    lunghezza_serpente= len(corpo)
+    condizione = False
     if posizione_nuova in blocks:
-        termina(lunghezza_serpente)
+        condizione = True
     elif posizione_nuova in food:
         corpo, scia_serpente = mangia(corpo, scia_serpente, posizione_nuova, food)
         print("Il serpente ha mangiato il cibo!")
     else:
         corpo, scia_serpente = muovi(corpo, scia_serpente, posizione_nuova)
         print("mi sono mosso")
-    return corpo, scia_serpente
+    return corpo, scia_serpente, condizione
 
 def mangia(corpo, scia_serpente, posizione_nuova, food):
     """
@@ -222,6 +222,8 @@ def play(start, mosse, food, blocks, righe, colonne):
     #corpo, scia_serpente = controlla(corpo, scia_serpente, start, mosse, food, blocks, righe, colonne)    
     for mossa in mosse_convertite:
         posizione_nuova = calcola_mossa(corpo, mossa, righe, colonne)
-        corpo, scia_serpente = controlla(corpo, scia_serpente, posizione_nuova, mosse, food, blocks, righe, colonne)
+        corpo, scia_serpente, condizione = controlla(corpo, scia_serpente, posizione_nuova, mosse, food, blocks, righe, colonne)
+        if condizione:
+            break
     #print(f"La scia del serpente è:{corpo},   {scia_serpente}")
     return corpo, scia_serpente, food, blocks, righe, colonne
