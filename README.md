@@ -62,6 +62,16 @@ Una volta clonata la repository da terminale collocarsi nella directy di Prog_Sn
 ```
 python main.py
 ```
+Verrà cosi avviato il programma con le impostazioni base e restituirà nella cartella output un immagine che riassumerà le posizioni correnti del serpente, la scia infine mostrare le caselle cibo rimaste e le caselle ostacolo.
+
+Le specifiche per ora implementate sono le seguenti
+[✓]la testa del serpente può muoversi nelle otto direzioni stabilite da consegna
+[✓]oltrepassando un bordo del campo, il serpente riappare dal bordo opposto
+[✓]quando il serpente “mangia” cibo il suo corpo cresce di un quadratino
+[✓]quando il serpente si scontra con un ostacolo, il gioco termina
+[✗]quando il serpente si scontra contro la sua stessa coda, il gioco termina. Ciò vale anche quando il serpente tenta di attraversare la sua coda in direzione diagonale
+
+Di seguito sono riportate le istruzioni per provare due ambienti di gioco con le relative mosse, verrano creati dei file di gioco appositi per verificare il corretto funzionamento delle specifiche marcate con [✓]
 
 E' possibile scegliere il campo da gioco e le mosse che effettuerà il serpente modificando il file `fiel_in.json` e `file_gioco.json`, due esempio di partite si trovano nella cartella `partite` [Vai alla cartella partite ](https://github.com/AngeloSpadea/Prog_Snake/tree/main/partite) per effettuare la modifica copiare il contenuto di `field_01.json` o `field_02.json` e sostituirlo al contenuto di field_in.json esegure la medesima operazione per i file `gamefile_*.json` e sostituire il contenuto nel file `file_gioco.json`. Procedura provvisoria che verrà sostituita nelle prossime fasi del progetto.
 
