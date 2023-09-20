@@ -9,7 +9,7 @@ import gestione_input as gi
 import funzioni_gioco as fg
 
 #prendo i dati dai file di gioco
-start, mosse, food, blocks, righe, colonne, field_out = gi.carico_dati('Prog_Snake/file_gioco.json')
+start, mosse, food, blocks, righe, colonne, field_out = gi.carico_dati('file_gioco.json')
 
 #gioco secondo i dati di gioco ottenuti
 corpo, scia_serpente, food, blocks, righe, colonne = fg.play(start, mosse, food, blocks, righe, colonne)
