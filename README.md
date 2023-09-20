@@ -271,14 +271,14 @@ Funzione che dato il file json restituisce le liste necessarie per la gestione d
 
 [Vai a test_carico_dati ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L50)
 ___
-12 __restituisco_dati (ignoto)__
+12 __restituisco_dati (Antonio)__
 > il nome della funzione è `def restituisco_dati(parametri):` che si trova nel file `gestione_input.py` alla riga 40
 
 [Vai alla funzione restituisco_dati ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/gestione_input.py#L40)
 
-[✗] Implementazione Funzione<br>
+[✓] Implementazione Funzione<br>
 [✗] Implementazione Test<br>
-  0%|------------------------------| 0/2 [00:00 ___________, Commits: _ ]<br>
+ 50%|███████████████---------------| 1/2 [00:00 ___________, Commits: _ ]<br>
   `Descrizione`
   Funzione che restituisce i dati finali
 
@@ -289,7 +289,7 @@ ___
 
 [✗] Implementazione Funzione<br>
 [✗] Implementazione Test<br>
-  0%|------------------------------| 0/2 [00:00 Sep  6 2023, Commits: 1 ]<br>
+  20%|██████------------------------| 0/2 [00:00 Sep  6 2023, Commits: 1 ]<br>
   `Descrizione`
 
 
