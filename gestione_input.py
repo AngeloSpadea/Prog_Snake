@@ -28,7 +28,7 @@ def carico_dati(game_file):
     f = open(game_file)
     game = json.load(f)
     field_out = game['field_out']
-    g = open(game['field_in'])
+    g = open('Prog_Snake/'+game['field_in'])
     field = json.load(g)
     start = game['start']
     mosse = game['moves']    
@@ -71,4 +71,4 @@ def restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, final_f
     for x, y in blocks:
         black_image.putpixel((y, x), (255, 0, 0))
     
-    black_image.save("output/"+final_field)
+    black_image.save("Prog_Snake/output/"+final_field)
