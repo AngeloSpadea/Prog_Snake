@@ -64,13 +64,14 @@ def calcola_mossa(corpo, mossa, righe, colonne):
     nuova_posizione = [(corpo[0][0] + mossa[0]) % colonne, (corpo[0][1] + mossa[1]) % righe]
     return nuova_posizione
     
-def controlla(corpo, scia_serpente, posizione_nuova, food, blocks):
+def controlla(corpo, scia_serpente, posizione_nuova, food, blocks, mossa):
     """
-    Funzione che controlla se la posizione nuova è:
+    Funzione che controlla se il serpente si scontra contro la sua stessa coda attraversando il suo corpo.
+    Se ciò è verificato il gioco deve terminare, altrimenti controlla se posizione nuova è:
         1) un blocco ("block"): allora il gioco deve terminare.
-        2) una cibo ("food"): allora il serpente deve mangiare e crescere di
+        2) un cibo ("food"): allora il serpente deve mangiare e crescere di
                               dimensione.
-        3) casella vuota: allora il serpente si muove.
+        3) una casella vuota: allora il serpente si muove.
 
     Parameters
     ----------
@@ -85,6 +86,9 @@ def controlla(corpo, scia_serpente, posizione_nuova, food, blocks):
         lista di caselle che contengono il cibo nel campo da gioco.
     blocks : list
         lista di caselle che sono blocchi nel campo da gioco.
+    mossa : list
+        lista di due elementi dove il primo rappresenta lo spostamento sulle righe
+        mentre il sencondo lo spostamento sulle colonne.
 
     Returns
     -------
@@ -96,7 +100,7 @@ def controlla(corpo, scia_serpente, posizione_nuova, food, blocks):
         valore booleano che indica se il gioco deve terminare o no 
         (True se il serpente colpisce un blocco, altrimenti False).
     """
-    condizione = False
+    condizione = scontro_coda(corpo, posizione_nuova, mossa)
     if posizione_nuova in blocks:
         condizione = True
     elif posizione_nuova in food:
@@ -236,7 +240,7 @@ def play(start, mosse, food, blocks, righe, colonne):
     #corpo, scia_serpente = controlla(corpo, scia_serpente, start, mosse, food, blocks, righe, colonne)    
     for mossa in mosse_convertite:
         posizione_nuova = calcola_mossa(corpo, mossa, righe, colonne)
-        corpo, scia_serpente, condizione = controlla(corpo, scia_serpente, posizione_nuova, food, blocks)
+        corpo, scia_serpente, condizione = controlla(corpo, scia_serpente, posizione_nuova, food, blocks, mossa)
         if condizione:
             break
     return corpo, scia_serpente, food, blocks, righe, colonne
