@@ -64,12 +64,12 @@ python main.py
 ```
 Verrà cosi avviato il programma con le impostazioni base e restituirà nella cartella output un immagine che riassumerà le posizioni correnti del serpente, la scia infine mostrare le caselle cibo rimaste e le caselle ostacolo.
 
-Le specifiche per ora implementate sono le seguenti
-[✓]la testa del serpente può muoversi nelle otto direzioni stabilite da consegna
-[✓]oltrepassando un bordo del campo, il serpente riappare dal bordo opposto
-[✓]quando il serpente “mangia” cibo il suo corpo cresce di un quadratino
-[✓]quando il serpente si scontra con un ostacolo, il gioco termina
-[✗]quando il serpente si scontra contro la sua stessa coda, il gioco termina. Ciò vale anche quando il serpente tenta di attraversare la sua coda in direzione diagonale
+Le specifiche per ora implementate sono le seguenti<br>
+[✓]la testa del serpente può muoversi nelle otto direzioni stabilite da consegna<br>
+[✓]oltrepassando un bordo del campo, il serpente riappare dal bordo opposto<br>
+[✓]quando il serpente “mangia” cibo il suo corpo cresce di un quadratino<br>
+[✓]quando il serpente si scontra con un ostacolo, il gioco termina<br>
+[✗]quando il serpente si scontra contro la sua stessa coda, il gioco termina. Ciò vale anche quando il serpente tenta di attraversare la sua coda in direzione diagonale<br>
 
 Di seguito sono riportate le istruzioni per provare due ambienti di gioco con le relative mosse, verrano creati dei file di gioco appositi per verificare il corretto funzionamento delle specifiche marcate con [✓]
 
