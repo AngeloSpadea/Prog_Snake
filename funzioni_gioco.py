@@ -222,8 +222,7 @@ def play(start, mosse, food, blocks, righe, colonne):
     #corpo, scia_serpente = controlla(corpo, scia_serpente, start, mosse, food, blocks, righe, colonne)    
     for mossa in mosse_convertite:
         posizione_nuova = calcola_mossa(corpo, mossa, righe, colonne)
-        corpo, scia_serpente, condizione = controlla(corpo, scia_serpente, posizione_nuova, mosse, food, blocks, righe, colonne)
+        corpo, scia_serpente, condizione = controlla(corpo, scia_serpente, posizione_nuova, food, blocks)
         if condizione:
             break
-    #print(f"La scia del serpente è:{corpo},   {scia_serpente}")
     return corpo, scia_serpente, food, blocks, righe, colonne
