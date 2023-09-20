@@ -65,6 +65,11 @@ python main.py
 
 E' possibile scegliere il campo da gioco e le mosse che effettuerà il serpente modificando il file `fiel_in.json` e `file_gioco.json`, due esempio di partite si trovano nella cartella `partite` [Vai alla cartella partite ](https://github.com/AngeloSpadea/Prog_Snake/tree/main/partite) per effettuare la modifica copiare il contenuto di `field_01.json` o `field_02.json` e sostituirlo al contenuto di field_in.json esegure la medesima operazione per i file `gamefile_*.json` e sostituire il contenuto nel file `file_gioco.json`. Procedura provvisoria che verrà sostituita nelle prossime fasi del progetto.
 
+___
+-------   `AVVERTENZA`   -------
+Nel Modificare i test tenere conto che nella rappresentazione dei punti [i,j] `i` rappresente la `colonna` mentre `j` rappresenta la `riga`
+___
+
 # Avanzamento del progetto 
 
 
@@ -266,10 +271,6 @@ ___
 `Descrizione`
 Funzione che dato il file json restituisce le liste necessarie per la gestione del gioco
 
-`Test 1`
-> test_carico_dati nel file test_01.py riga 50
-
-[Vai a test_carico_dati ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L50)
 ___
 12 __restituisco_dati (Antonio)__
 > il nome della funzione è `def restituisco_dati(parametri):` che si trova nel file `gestione_input.py` alla riga 40
