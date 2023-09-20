@@ -169,6 +169,31 @@ def muovi(corpo, scia_serpente, posizione_nuova):
     print(f"il corpo è:{corpo} e la scia è: {scia_serpente}")
     return corpo, scia_serpente
 
+def scontro_coda(corpo, posizione_nuova, mossa):
+    """
+    Funzione che controlla se il serpente si scontra con la sua coda e, in tal caso,
+    il gioco termina.
+
+    Parameters
+    ----------
+    corpo : list
+        lista di tutte le caselle occupate dal corpo del serpente aggiornata.
+    posizione_nuova : list
+        lista di due elementi che rappresenta la riga e la colonna della nuova
+        posizione della testa.
+    mossa : list
+        lista di due elementi dove il primo rappresenta lo spostamento sulle righe
+        mentre il sencondo lo spostamento sulle colonne.
+
+    Returns
+    -------
+    condizione : bool
+        valore booleano che indica se il gioco deve terminare o no 
+        (True se il serpente colpisce un blocco, altrimenti False).
+
+    """
+pass
+
 def termina(lunghezza_serpente):
     """
     Funzione che fa terminare il gioco.
