@@ -66,11 +66,11 @@ Verrà cosi avviato il programma con le impostazioni base e restituirà nella ca
 
 Le specifiche per ora implementate sono le seguenti<br>
 
-[✓]  La testa del serpente può muoversi nelle otto direzioni stabilite da consegna<br>
-[✓]  Oltrepassando un bordo del campo, il serpente riappare dal bordo opposto<br>
-[✓]  Quando il serpente “mangia” cibo il suo corpo cresce di un quadratino<br>
-[✓]  Quando il serpente si scontra con un ostacolo, il gioco termina<br>
-[✗]  Quando il serpente si scontra contro la sua stessa coda, il gioco termina. Ciò vale anche quando il serpente tenta di     attraversare la sua coda in direzione diagonale<br>
+1  [✓]  La testa del serpente può muoversi nelle otto direzioni stabilite da consegna<br>
+2  [✓]  Oltrepassando un bordo del campo, il serpente riappare dal bordo opposto<br>
+3  [✓]  Quando il serpente “mangia” cibo il suo corpo cresce di un quadratino<br>
+4  [✓]  Quando il serpente si scontra con un ostacolo, il gioco termina<br>
+5  [✗]  Quando il serpente si scontra contro la sua stessa coda, il gioco termina. Ciò vale anche quando il serpente tenta di attraversare la sua coda in direzione diagonale<br>
 
 Di seguito sono riportate le istruzioni per provare due ambienti di gioco con le relative mosse, verrano creati dei file di gioco appositi per verificare il corretto funzionamento delle specifiche marcate con [✓]
 
