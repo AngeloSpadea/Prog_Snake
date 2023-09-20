@@ -10,17 +10,17 @@ def converti_mosse(mosse):
     """
     Funzione che converte tutte le mosse scritte nella forma dei punti cardinali
     nella forma vettoriale [a,b] dove a e b rappresentano lo spostamentamento 
-    rispettivamente nelle righe e nelle colonne
+    rispettivamente nelle righe e nelle colonne.
 
     Parameters
     ----------
     mosse : list 
-        lista delle mosse scritte nella forma dei punti cardinali (es. [N, W, ...])
+        lista delle mosse scritte nella forma dei punti cardinali (es. [N, W, ...]).
 
     Returns
     -------
     mosse_convertite : list
-        lista delle mosse scritte nella forma vettoriale (es. [[-1, 0],[0,-1], ...])
+        lista delle mosse scritte nella forma vettoriale (es. [[-1, 0],[0,-1], ...]).
 
     """
     direzioni = {
@@ -40,7 +40,7 @@ def converti_mosse(mosse):
 def calcola_mossa(corpo, mossa, righe, colonne):
     """
     Funzione che calcola la nuova posizione della testa tenendo conto della 
-    dimensione del campo da gioco
+    dimensione del campo da gioco.
 
     Parameters
     ----------
@@ -58,19 +58,19 @@ def calcola_mossa(corpo, mossa, righe, colonne):
     -------
     nuova_posizione: list
         lista di due elementi che rappresenta la riga e la colonna della nuova
-        posizione della testa
+        posizione della testa.
 
     """
     nuova_posizione = [(corpo[0][0] + mossa[0]) % colonne, (corpo[0][1] + mossa[1]) % righe]
     return nuova_posizione
     
-def controlla(corpo, scia_serpente, posizione_nuova, mosse, food, blocks, righe, colonne):
+def controlla(corpo, scia_serpente, posizione_nuova, food, blocks):
     """
     Funzione che controlla se la posizione nuova è:
-        1) un blocco ("block"): allora il gioco deve terminare
-        2) una cibo ("food"): allora il serpente deve mangiare e crescere di 
-                              dimensione
-        3) casella vuota: allora il serpente si muove
+        1) un blocco ("block"): allora il gioco deve terminare.
+        2) una cibo ("food"): allora il serpente deve mangiare e crescere di
+                              dimensione.
+        3) casella vuota: allora il serpente si muove.
 
     Parameters
     ----------
@@ -80,11 +80,11 @@ def controlla(corpo, scia_serpente, posizione_nuova, mosse, food, blocks, righe,
         lista di tutte le caselle in cui il corpo del serpente è passato.
     posizione_nuova : list
         lista di due elementi che rappresenta la riga e la colonna della nuova
-        posizione della testa
-    campo_da_gioco : file json
-        un file nel quale sono contenute le informazione del campo da gioco, 
-        della posizione iniziale, la lista delle mosse e il file su cui salvare
-        l'immagine finale.
+        posizione della testa.
+    food : list
+        lista di caselle che contengono il cibo nel campo da gioco.
+    blocks : list
+        lista di caselle che sono blocchi nel campo da gioco.
 
     Returns
     -------
@@ -92,6 +92,9 @@ def controlla(corpo, scia_serpente, posizione_nuova, mosse, food, blocks, righe,
         lista di tutte le caselle occupate dal corpo del serpente.
     scia_serpente : list
         lista di tutte le caselle in cui il corpo del serpente è passato.
+    condizione : bool
+        valore booleano che indica se il gioco deve terminare o no 
+        (True se il serpente colpisce un blocco, altrimenti False).
     """
     condizione = False
     if posizione_nuova in blocks:
@@ -117,12 +120,9 @@ def mangia(corpo, scia_serpente, posizione_nuova, food):
         lista di tutte le caselle in cui il corpo del serpente è passato.
     posizione_nuova : list
         lista di due elementi che rappresenta la riga e la colonna della nuova
-        posizione della testa
-    campo_da_gioco : file json
-        un file nel quale sono contenute le informazione del campo da gioco, 
-        della posizione iniziale, la lista delle mosse e il file su cui salvare
-        l'immagine finale.
-
+        posizione della testa.
+    food : list
+        lista di caselle che contengono il cibo nel campo da gioco.
 
     Returns
     -------
@@ -142,7 +142,7 @@ def mangia(corpo, scia_serpente, posizione_nuova, food):
 
 def muovi(corpo, scia_serpente, posizione_nuova):
     """
-    Funzione che fa muovere il serpente
+    Funzione che fa muovere il serpente.
 
     Parameters
     ----------
@@ -152,11 +152,7 @@ def muovi(corpo, scia_serpente, posizione_nuova):
         lista di tutte le caselle in cui il corpo del serpente è passato.
     posizione_nuova : list
         lista di due elementi che rappresenta la riga e la colonna della nuova
-        posizione della testa
-    campo_da_gioco : file json
-        un file nel quale sono contenute le informazione del campo da gioco, 
-        della posizione iniziale, la lista delle mosse e il file su cui salvare
-        l'immagine finale.
+        posizione della testa.
 
 
     Returns
@@ -175,7 +171,7 @@ def muovi(corpo, scia_serpente, posizione_nuova):
 
 def termina(lunghezza_serpente):
     """
-    Funzione che fa terminare il gioco
+    Funzione che fa terminare il gioco.
 
     Parameters
     ----------
@@ -202,7 +198,11 @@ def play(start, mosse, food, blocks, righe, colonne):
         lista di due elementi che rappresentano la riga e la colonna della 
         posizione iniziale del serpente.
     mosse : list 
-        lista delle mosse scritte nella forma dei punti cardinali (es. [N, W, ...])
+        lista delle mosse scritte nella forma dei punti cardinali (es. [N, W, ...]).
+    food : list
+        lista di caselle che contengono il cibo nel campo da gioco.
+    blocks : list
+        lista di caselle che sono blocchi nel campo da gioco.
     righe : int 
         numero di righe del campo di gioco.
     colonne : int
