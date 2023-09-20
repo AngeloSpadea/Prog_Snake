@@ -192,7 +192,12 @@ def scontro_coda(corpo, posizione_nuova, mossa):
         (True se il serpente colpisce un blocco, altrimenti False).
 
     """
-pass
+    condizione = False
+    segmento1 = [(posizione_nuova[0] - mossa[0]), posizione_nuova[1]]
+    segmento2 = [posizione_nuova[0], [(posizione_nuova[1] - mossa[1])]]
+    if posizione_nuova or (segmento1 and segmento2) in corpo:
+        condizione = True  
+    return condizione
 
 def play(start, mosse, food, blocks, righe, colonne):
     """
