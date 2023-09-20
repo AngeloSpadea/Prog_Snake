@@ -4,7 +4,6 @@ Created on Mon Sep 11 16:44:07 2023
 
 @author: angel
 """
-import sys
 
 def converti_mosse(mosse):
     """

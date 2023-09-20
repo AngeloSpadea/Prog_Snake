@@ -1,5 +1,5 @@
-from msilib.schema import SelfReg
-from typing import Self
+#from msilib.schema import SelfReg
+#from typing import Self
 import unittest
 from funzioni_gioco import calcola_mossa, converti_mosse, mangia, muovi, scontro_coda
 #from gestione_input import carico_dati
