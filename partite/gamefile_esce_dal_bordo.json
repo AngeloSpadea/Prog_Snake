@@ -1,0 +1,6 @@
+{
+    "field_in": "field_in.json",
+    "start": [ 7, 7],
+    "moves": "E E E E E E E E SE ",
+    "field_out": "final_field.png"
+}
