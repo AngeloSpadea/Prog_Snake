@@ -56,42 +56,14 @@ pip install -r requirements.txt
 
 ## Avviare il gioco
 
-Una volta clonata la repository avviare il file main.py
-[Vai a nel main.py ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/main.py)
-Non è ancora disponibile la versione completa ma per ora il programma puo essere avviato seguendo le mosse contenute nel file di gioco nel campo predefinito
+Una volta clonata la repository da terminale collocarsi nella directy di Prog_Snake e avviare il seguente comando
 
-### Il file di gioco
-
-Una partita è descritta da un file Json. Di seguito ve ne è un esempio.
-
+>Terminale
 ```
-{
-  "field_in": "field_in_01.png",
-  "start": [5, 3],
-  "moves": "N N N E SE SE SE E E N N N W W W W W W W S S S S S S SW SW SW",
-  "field_out": "field_out_01.png"
-}
+python main.py
 ```
 
-### Il campo da gioco
-
-
-```
-{
-  "rows": 4,
-  "cols": 6,
-  "food": [
-    [0, 4],
-    [2, 2],
-    [3, 2]
-  ],
-  "blocks": [
-    [0, 2],
-    [1, 1],
-    [3, 1]
-  ]
-}
-```	
+E' possibile scegliere il campo da gioco e le mosse che effettuerà il serpente modificando il file `fiel_in.json` e `file_gioco.json`, due esempio di partite si trovano nella cartella `partite` [Vai alla cartella partite ](https://github.com/AngeloSpadea/Prog_Snake/tree/main/partite) per effettuare la modifica copiare il contenuto di `field_01.json` o `field_02.json` e sostituirlo al contenuto di field_in.json esegure la medesima operazione per i file `gamefile_*.json` e sostituire il contenuto nel file `file_gioco.json`. Procedura provvisoria che verrà sostituita nelle prossime fasi del progetto.
 
 # Avanzamento del progetto 
 
