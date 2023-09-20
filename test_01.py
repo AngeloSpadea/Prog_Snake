@@ -1,6 +1,6 @@
 import unittest
 from funzioni_gioco import calcola_mossa, converti_mosse, mangia, muovi
-from gestione_input import carico_dati
+#from gestione_input import carico_dati
 
 class test(unittest.TestCase):
     # Nel Modificare i test tenere conto che nella rappresentazione dei punti [i,j]
@@ -39,6 +39,6 @@ class test(unittest.TestCase):
         self.assertEqual(result[1], [[2,4], [3,4]]) 
    
     def test_muovi_da_cresciuto(self):
-        result = muovi([[1,5], [2,5]], [[3,5]], [1,4])
-        self.assertEqual(result[0], [[1,5], [1,4]])
-        self.assertEqual(result[1], [[2,5], [3,5]]) 
+        result = muovi([[5,1], [5,2]], [[5,3]], [4,1])
+        self.assertEqual(result[0], [[4,1], [5,1]])
+        self.assertEqual(result[1], [[5,2], [5,3]]) 
