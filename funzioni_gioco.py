@@ -60,7 +60,7 @@ def calcola_mossa(corpo, mossa, righe, colonne):
         posizione della testa.
 
     """
-    nuova_posizione = [(corpo[0][0] + mossa[0]) % colonne, (corpo[0][1] + mossa[1]) % righe]
+    nuova_posizione = [(corpo[0][0] + mossa[0]) % righe, (corpo[0][1] + mossa[1]) % colonne]
     return nuova_posizione
     
 def controlla(corpo, scia_serpente, posizione_nuova, food, blocks, mossa):
@@ -99,7 +99,8 @@ def controlla(corpo, scia_serpente, posizione_nuova, food, blocks, mossa):
         valore booleano che indica se il gioco deve terminare o no 
         (True se il serpente colpisce un blocco, altrimenti False).
     """
-    condizione = scontro_coda(corpo, posizione_nuova, mossa)
+    condizione = False
+    scontro_coda(corpo, posizione_nuova, mossa)    
     if posizione_nuova in blocks:
         condizione = True
     elif posizione_nuova in food:

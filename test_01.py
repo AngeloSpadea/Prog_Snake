@@ -10,7 +10,7 @@ class test(unittest.TestCase):
         self.assertEqual(result, [2, 1])
 
     def test_verifico_calcola_mossa_con_uscita_dal_bordo(self):
-        result = calcola_mossa([[5,3]], [1,1], 4, 6)
+        result = calcola_mossa([[3,5]], [1,1], 4, 6)
         self.assertEqual(result, [0, 0])
 
     def test_corverti_mosse(self):
