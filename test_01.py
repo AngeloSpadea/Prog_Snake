@@ -1,8 +1,5 @@
-#from msilib.schema import SelfReg
-#from typing import Self
 import unittest
 from funzioni_gioco import calcola_mossa, converti_mosse, mangia, muovi, scontro_coda
-#from gestione_input import carico_dati
 
 class test(unittest.TestCase):
     # Nel Modificare i test tenere conto che nella rappresentazione dei punti [i,j]
