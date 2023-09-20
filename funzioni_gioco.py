@@ -194,22 +194,6 @@ def scontro_coda(corpo, posizione_nuova, mossa):
     """
 pass
 
-def termina(lunghezza_serpente):
-    """
-    Funzione che fa terminare il gioco.
-
-    Parameters
-    ----------
-    lunghezza_serpente : int
-        lunghezza del serpente.
-
-    Returns
-    -------
-    La lunghezza del serpente.
-
-    """  
-    sys.exit(f"Gioco terminato.\n La lunghezza del serpente è di {lunghezza_serpente} quadrato/i")
-
 def play(start, mosse, food, blocks, righe, colonne):
     """
     Funzione che gestisce il gioco: converte le mosse, controlla se la 
