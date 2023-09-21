@@ -10,8 +10,9 @@ from PIL import Image
 
 def carico_dati(game_file):
     """
-    Funzione che dato il file json restituisce le liste necessarie per la 
-    gestione del gioco
+    Funzione che legge i dati da un file JSON specificato e restituisce una tupla 
+    contenente diverse liste di dati che saranno utilizzati all'interno del programma 
+    principale del gioco per la gestione dello stesso.
 
     Parameters
     ----------
@@ -22,7 +23,7 @@ def carico_dati(game_file):
 
     Returns
     -------
-    una tupla con le liste dei dati necessari.
+    una tupla con le liste dei dati estratti: start, mosse, food, blocks, righe, colonne, field_out.
 
     """
     f = open(game_file)
@@ -40,7 +41,12 @@ def carico_dati(game_file):
 
 def restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, final_field):
     """
-    Funzione che restituisce i dati finali
+    Funzione che restituisce la lunghezza del serpente e che genera un'immagine 
+    rappresentativa dello stato finale del gioco.
+    Crea una rappresentazione visiva dell'ultima configurazione del gioco, dove 
+    il serpente è tracciato in verde, il cibo in arancione, i blocchi in rosso 
+    e la scia del serpente in grigio su uno sfondo nero.
+    Questi dati possono essere utilizzati per valutare l'evoluzione del gioco.  
 
     Parameters
     ----------
@@ -51,7 +57,8 @@ def restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, final_f
 
     Returns
     -------
-    None.
+    lunghezza_serpente: int
+        numero di quadratini occupati dal serpente alla fine del gioco.
 
     """
     lunghezza_serpente= len(corpo)    
