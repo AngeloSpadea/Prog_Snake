@@ -7,8 +7,7 @@ class test(unittest.TestCase):
 
     def test_verifico_calcola_mossa(self):
         """
-        Verifica che la funzione calcola_mossa funzioni correttamente 
-        restituendo la nuova posizione.
+        Verifica che la funzione calcola_mossa funzioni correttamente restituendo la nuova posizione.
         ----------
         Parametri: corpo, mossa, righe, colonne.
         Risultato atteso: nuova posizione. 
@@ -24,7 +23,7 @@ class test(unittest.TestCase):
         facendo ricomparire la testa del serpente dal bordo opposto.
         ----------
         Parametri: corpo, mossa, righe, colonne.
-        Risultato atteso: nuova posizione.
+        Risultato atteso: nuova_posizione.
 
         """
         result = calcola_mossa([[3,5]], [1,1], 4, 6)
@@ -32,10 +31,12 @@ class test(unittest.TestCase):
 
     def test_corverti_mosse(self):
         """
-        Verifica che la funzione converti_mosse converta correttamente la direzione Nord (N).
+        Verifica che la funzione converti_mosse converta correttamente la direzione verticale Nord (N).
         ----------
-        Parametri:
-        Risultato atteso: 
+        Parametri: 
+            mosse: Nord (N) in punto cardinale.
+        Risultato atteso:
+            mosse_convertite: mossa Nord in forma vettoriale.
 
         """
         result = converti_mosse('N')
@@ -43,19 +44,29 @@ class test(unittest.TestCase):
     
     def test_corverti_mosse_oblique(self):
         """
+        Verifica che la funzione converti_mosse converta correttamente la direzione obliqua Nord-Ovest (NW).
         ----------
-        Parametri:
-        Risultato atteso: 
-    
+        Parametri: 
+            mosse: Nord-Ovest (NW) in punto cardinale.
+        Risultato atteso:
+            mosse_convertite: mossa Nord-Ovest in forma vettoriale.
+
         """
         result = converti_mosse('NW')
         self.assertEqual(result, [[-1, -1]])
 
     def test_mangia(self):
         """
+        Verifica che la funzione mangia gestisca correttamente il caso in cui posizione_nuova sia occupata da un cipo.
+        La funzione aggiunge la nuova posizione (dove il cibo è stato mangiato) due volte all'inizio del corpo del serpente,
+        facendo crescere il corpo del serpente.
         ----------
-        Parametri:
-        Risultato atteso: 
+        Parametri: 
+            corpo: un solo elemento.
+            scia_serpente: vuota.
+            posizone_nuova.
+            food.
+        Risultati attesi: corpo, scia_serpente.
         
         """
         result = mangia([[1,1]],[],[1,2],[[1, 2], [2, 2], [3, 2]])
@@ -65,9 +76,13 @@ class test(unittest.TestCase):
     
     def test_muovi_start(self):
         """
+        Verifica che la funzione muovi gestisca correttamente il movimento di partenza quando la nuova posizione è vuota.
         ----------
         Parametri:
-        Risultato atteso: 
+            corpo: un solo elemento.
+            scia_serpente: vuota.
+            posizione_nuova.
+        Risultati attesi: corpo, scia_serpente.
         
         """
         result = muovi([[3,4]], [], [2,4])
@@ -76,9 +91,13 @@ class test(unittest.TestCase):
 
     def test_muovi(self):
         """
+        Verifica che la funzione muovi gestisca correttamente il movimento generale.
         ----------
         Parametri:
-        Risultato atteso: 
+            corpo: un solo elemento.
+            scia_serpente: non vuota.
+            posizione_nuova.
+        Risultati attesi: corpo, scia_serpente.
         
         """
         result = muovi([[2,4]], [[3,4]], [2,3])
@@ -87,9 +106,13 @@ class test(unittest.TestCase):
    
     def test_muovi_da_cresciuto(self):
         """
+        Verifica che la funzione muovi gestisca correttamente il movimento quando il serpente è cresciuto.
         ----------
         Parametri:
-        Risultato atteso: 
+            corpo: più elementi.
+            scia_serpente: non vuota.
+            posizione_nuova.
+        Risultati attesi: corpo, scia_serpente.
         
         """
         result = muovi([[5,1], [5,2]], [[5,3]], [4,1])
@@ -98,9 +121,10 @@ class test(unittest.TestCase):
     
     def test_scontro_coda(self):
         """
+        Verifica che la funzione scontro_coda rilevi correttamente lo scontro con la coda in direzione verticale/orizzontale.
         ----------
-        Parametri:
-        Risultato atteso: 
+        Parametri: corpo, posizione_nuova, mossa.
+        Risultato atteso: condizione che segnala che lo scontro è avvenuto.
         
         """
         result = scontro_coda([[0,3], [0,2], [0,1], [1,1], [2,1], [2,2], [1,2]], [0,3], [-1,0])
@@ -108,9 +132,10 @@ class test(unittest.TestCase):
         
     def test_scontro_coda_direzione_diagonale(self):
         """
+        Verifica che la funzione scontro_coda rilevi correttamente lo scontro con la coda in direzione diagonale.
         ----------
-        Parametri:
-        Risultato atteso: 
+        Parametri: corpo, posizione_nuova, mossa.
+        Risultato atteso: condizione che segnala che lo scontro è avvenuto.
         
         """
         result = scontro_coda([[0,3], [1,2], [2,1], [3,1], [3,2], [3,3], [2,3], [1,3]], [0,2], [-1,-1])
