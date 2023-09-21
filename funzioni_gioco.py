@@ -40,6 +40,8 @@ def calcola_mossa(corpo, mossa, righe, colonne):
     """
     Funzione che calcola la nuova posizione della testa tenendo conto della 
     dimensione del campo da gioco.
+    La funzione gestisce anche il caso in cui il serpente, oltrepassando un bordo del campo, 
+    riappare dal bordo opposto.
 
     Parameters
     ----------
@@ -66,10 +68,10 @@ def calcola_mossa(corpo, mossa, righe, colonne):
 def controlla(corpo, scia_serpente, posizione_nuova, food, blocks, mossa):
     """
     Funzione che controlla se il serpente si scontra contro la sua stessa coda attraversando il suo corpo.
-    Se ciò è verificato il gioco deve terminare, altrimenti controlla se posizione nuova è:
+    Se ciò è verificato, il gioco deve terminare. Altrimenti controlla se posizione_nuova è:
         1) un blocco ("block"): allora il gioco deve terminare.
         2) un cibo ("food"): allora il serpente deve mangiare e crescere di
-                              dimensione.
+                             dimensione.
         3) una casella vuota: allora il serpente si muove.
 
     Parameters
@@ -113,8 +115,10 @@ def controlla(corpo, scia_serpente, posizione_nuova, food, blocks, mossa):
 
 def mangia(corpo, scia_serpente, posizione_nuova, food):
     """
-    Funzione che fa mangiare al serpente il cibo, il quale viene rimosso dalla 
-    lista del cibo.
+    Funzione che fa mangiare al serpente il cibo e, muovendolo nella nuova casella, lo fa crescere di dimensioni.
+    Il cibo, una volta mangiato viene rimosso dalla lista del cibo.
+    La funzione tiene traccia delle posizioni precedenti attraverso le quali il serpente è passato, 
+    aggiornando la sua scia.
 
     Parameters
     ----------
@@ -146,7 +150,8 @@ def mangia(corpo, scia_serpente, posizione_nuova, food):
 
 def muovi(corpo, scia_serpente, posizione_nuova):
     """
-    Funzione che fa muovere il serpente.
+    Funzione che fa muovere il serpente e tiene traccia delle posizioni precedenti attraverso 
+    le quali il serpente è passato, aggiornando la sua scia.
 
     Parameters
     ----------
@@ -157,7 +162,6 @@ def muovi(corpo, scia_serpente, posizione_nuova):
     posizione_nuova : list
         lista di due elementi che rappresenta la riga e la colonna della nuova
         posizione della testa.
-
 
     Returns
     -------
@@ -176,7 +180,7 @@ def muovi(corpo, scia_serpente, posizione_nuova):
 def scontro_coda(corpo, posizione_nuova, mossa):
     """
     Funzione che controlla se il serpente si scontra con la sua coda e, in tal caso,
-    il gioco termina.
+    il gioco deve terminare.
 
     Parameters
     ----------
@@ -205,10 +209,15 @@ def scontro_coda(corpo, posizione_nuova, mossa):
 
 def gioca(start, mosse, food, blocks, righe, colonne):
     """
-    Funzione che gestisce il gioco: converte le mosse, controlla se la 
-    posizione iniziale è una casella valida e per ogni mossa gestisce se il 
-    serpente deve muoversi, mangiare o se il serpente si blocca facendo 
-    terminare così il gioco.
+    Funzione che gestisce il gioco: 
+    1) converte le mosse da punti cardinali nella forma vettoriale.
+    2) controlla se la posizione iniziale è una casella valida e per ogni mossa.
+    3) calcola la nuova posizione che occuperà la testa del serpente. 
+    gestendo anche il caso in cui esso oltrepassi un bordo del campo da gioco.
+    4) controlla la nuova posizione che occuperà la testa del serpente e gestisce le seguenti situazioni:
+        - se la casella è vuota, il serpente si muove.
+        - se la casella è occupata da un cibo, il serpente mangia.
+        - se la casella è un blocco o se il serpente attraversa sè stesso, il gico termina. 
 
     Parameters
     ---------
@@ -232,6 +241,14 @@ def gioca(start, mosse, food, blocks, righe, colonne):
         lista di tutte le caselle occupate dal corpo del serpente aggiornata.
     scia_serpente : list
         lista di tutte le caselle in cui il corpo del serpente è passato aggiornata.
+    food : list
+        lista di caselle che contengono il cibo nel campo da gioco.
+    blocks : list
+        lista di caselle che sono blocchi nel campo da gioco.
+    righe : int 
+        numero di righe del campo di gioco.
+    colonne : int
+        numero di colonne del campo di gioco.
 
     """
     mosse_convertite = converti_mosse(mosse)
