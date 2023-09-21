@@ -23,4 +23,4 @@ def play(game_file: str) -> int:
 
 if __name__ == '__main__':    
     game_file=input("Inserisci il nome del file di gioco:\n")
-    play(game_file)
+    lunghezza_serpente=play(game_file)
