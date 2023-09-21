@@ -1,5 +1,5 @@
 {
-    "field_in": "field_in.json",
+    "field_in": "partite/field_test.json",
     "start": [ 7, 7],
     "moves": "NE NE NE NE NE NE E S S S S",
     "field_out": "final_field.png"

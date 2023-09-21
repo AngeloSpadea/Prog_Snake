@@ -8,11 +8,19 @@ Created on Mon Sep 11 17:56:12 2023
 import gestione_input as gi
 import funzioni_gioco as fg
 
-#prendo i dati dai file di gioco
-start, mosse, food, blocks, righe, colonne, field_out = gi.carico_dati('file_gioco.json')
+    
+def play(game_file: str) -> int:
+    #prendo i dati dai file di gioco
+    start, mosse, food, blocks, righe, colonne, field_out = gi.carico_dati(game_file)
+    
+    #gioco secondo i dati di gioco ottenuti
+    corpo, scia_serpente, food, blocks, righe, colonne = fg.gioca(start, mosse, food, blocks, righe, colonne)
+    
+    #restituisco i risultati
+    lunghezza_serpente = gi.restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, field_out)
+    print(lunghezza_serpente) 
+    return lunghezza_serpente
 
-#gioco secondo i dati di gioco ottenuti
-corpo, scia_serpente, food, blocks, righe, colonne = fg.play(start, mosse, food, blocks, righe, colonne)
-
-#restituisco i risultati
-gi.restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, field_out)
+if __name__ == '__main__':    
+    game_file=input("Inserisci il nome del file di gioco:\n")
+    play(game_file)

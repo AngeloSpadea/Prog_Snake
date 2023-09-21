@@ -54,8 +54,7 @@ def restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, final_f
     None.
 
     """
-    lunghezza_serpente= len(corpo)
-    print(lunghezza_serpente)
+    lunghezza_serpente= len(corpo)    
 
     black_image = Image.new("RGB", (colonne, righe), (0, 0, 0))
     
@@ -72,3 +71,4 @@ def restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, final_f
         black_image.putpixel((y, x), (255, 0, 0))
     
     black_image.save("output/"+final_field)
+    return lunghezza_serpente

@@ -203,7 +203,7 @@ def scontro_coda(corpo, posizione_nuova, mossa):
         condizione = True  
     return condizione
 
-def play(start, mosse, food, blocks, righe, colonne):
+def gioca(start, mosse, food, blocks, righe, colonne):
     """
     Funzione che gestisce il gioco: converte le mosse, controlla se la 
     posizione iniziale è una casella valida e per ogni mossa gestisce se il 
