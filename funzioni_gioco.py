@@ -179,9 +179,18 @@ def muovi(corpo, scia_serpente, posizione_nuova):
 
 def scontro_coda(corpo, posizione_nuova, mossa):
     """
-    Funzione che controlla se il serpente si scontra con la sua coda e, in tal caso,
-    il gioco deve terminare.
-
+    Funzione che controlla se il serpente si scontra con la sua coda, tentando di attraversarla.
+    Per verificare se il serpente si scontra con la sua coda in direzione verticalo o orizzontale, 
+    è stato verificato se posizione_nuova appartiene al corpo del serpente;
+    Per verificare se il serpente tenta di attraversare la sua coda in direzione diagonale,
+    sono stati calcolati:
+        segmento1: quadratino adiacente lungo le ordinate a posizione_nuova 
+            (traslato orizzontalmente rispetto a posizione_nuova secondo l'ascissa di mossa)
+        segmento2: quadratino adiacente lungo le ascisse a posizione_nuova 
+            (traslato verticalmente rispetto a posizione_nuova secondo l'ordinata di mossa)
+    Se posizione_nuova o segmento1 e segmento2 appartengono al corpo del serpente, 
+    la funzione restituisce True (il serpente tenta di attraversare la sua coda) e il gioco deve terminare.
+    
     Parameters
     ----------
     corpo : list
@@ -197,7 +206,8 @@ def scontro_coda(corpo, posizione_nuova, mossa):
     -------
     condizione : bool
         valore booleano che indica se il gioco deve terminare o no 
-        (True se il serpente colpisce un blocco, altrimenti False).
+        (True se il posizione_nuova è un quadratino del corpo del serpente o se
+        il serpente attraversa la sua coda in direzione diagonale, altrimenti False).
 
     """
     condizione = False
