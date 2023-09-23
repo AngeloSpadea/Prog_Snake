@@ -1,6 +1,0 @@
-{
-    "field_in": "partite/field_01.json",
-    "start": [ 58, 40 ],
-    "moves": "E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E E NE NE NE N N N N N N N N N N N N N N N N N N N N N N N N N N N N N N N N N N N N N N N NW NW NW NW NW NW NW W W W W W",
-    "field_out": "final_field.png"
-}
