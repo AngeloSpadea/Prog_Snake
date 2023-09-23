@@ -77,5 +77,5 @@ def restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, final_f
     for x, y in blocks:
         black_image.putpixel((y, x), (255, 0, 0))
     
-    black_image.save("output/"+final_field)
+    black_image.save(final_field)
     return lunghezza_serpente
