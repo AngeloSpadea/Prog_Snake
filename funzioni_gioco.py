@@ -102,13 +102,12 @@ def controlla(corpo, scia_serpente, posizione_nuova, food, blocks, mossa):
         (True se il serpente colpisce un blocco, altrimenti False).
     """
     condizione = False
-    scontro_coda(corpo, posizione_nuova, mossa)    
     if posizione_nuova in blocks:
         condizione = True
     elif posizione_nuova in food:
         corpo, scia_serpente = mangia(corpo, scia_serpente, posizione_nuova, food)
         print("Il serpente ha mangiato il cibo!")
-    else:
+    else: #se la posizione nuova non è nè un cibo nè un blocco allora vuol dire che è vuoto quindi mi ci sposto
         corpo, scia_serpente = muovi(corpo, scia_serpente, posizione_nuova)
         print("mi sono mosso")
     return corpo, scia_serpente, condizione
