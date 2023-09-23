@@ -4,3 +4,4 @@ __pycache__/*
 field_in.json
 file_gioco.json
 conversione.py
+data/*
