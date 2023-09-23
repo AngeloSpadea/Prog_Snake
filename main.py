@@ -10,13 +10,29 @@ import funzioni_gioco as fg
 
     
 def play(game_file: str) -> int:
-    #prendo i dati dai file di gioco
+    """
+    Funzione principale del programma che:
+        - carica i dati di gioco dal file specificato;
+        - consente di giocare utilizzando i dati di gioco ottenuti;
+        - restituisce la lunghezza del serpente quando il gioco è terminato.
+
+    Parameters
+    ----------
+    game_file: str
+        nome del file di gioco.
+    colonne : int
+        numero di colonne del campo di gioco.
+
+    Returns
+    -------
+    lunghezza_serpente: int
+        numero di quadratini occupati dal serpente alla fine del gioco.
+
+    """
     start, mosse, food, blocks, righe, colonne, field_out = gi.carico_dati(game_file)
     
-    #gioco secondo i dati di gioco ottenuti
     corpo, scia_serpente, food, blocks, righe, colonne = fg.gioca(start, mosse, food, blocks, righe, colonne)
     
-    #restituisco i risultati
     lunghezza_serpente = gi.restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, field_out)
     print(lunghezza_serpente) 
     return lunghezza_serpente
