@@ -176,26 +176,21 @@ def muovi(corpo, scia_serpente, posizione_nuova):
     print(f"il corpo è:{corpo} e la scia è: {scia_serpente}")
     return corpo, scia_serpente
 
-def scontro_coda(corpo, posizione_nuova, mossa):
+def scontro_coda(posizione_nuova, mossa):
     """
     Funzione che controlla se il serpente si scontra con la sua coda, tentando di attraversarla.
-    Per verificare se il serpente si scontra con la sua coda in direzione verticalo o orizzontale, 
-    è stato verificato se posizione_nuova appartiene al corpo del serpente;
     Per verificare se il serpente tenta di attraversare la sua coda in direzione diagonale,
     sono stati calcolati:
         segmento1: quadratino adiacente lungo le ordinate a posizione_nuova 
             (traslato orizzontalmente rispetto a posizione_nuova secondo l'ascissa di mossa)
         segmento2: quadratino adiacente lungo le ascisse a posizione_nuova 
             (traslato verticalmente rispetto a posizione_nuova secondo l'ordinata di mossa)
-    Se posizione_nuova o segmento1 e segmento2 appartengono al corpo del serpente, 
-    la funzione restituisce True (il serpente tenta di attraversare la sua coda) e il gioco deve terminare.
+    Se segmento1 e segmento2 appartengono al corpo del serpente, il gioco deve terminare.
     
     Parameters
     ----------
-    corpo : list
-        lista di tutte le caselle occupate dal corpo del serpente aggiornata.
     posizione_nuova : list
-        lista di due elementi che rappresenta la riga e la colonna della nuova
+        lista di due elementi che rappresentano la riga e la colonna della nuova
         posizione della testa.
     mossa : list
         lista di due elementi dove il primo rappresenta lo spostamento sulle righe
@@ -203,18 +198,17 @@ def scontro_coda(corpo, posizione_nuova, mossa):
 
     Returns
     -------
-    condizione : bool
-        valore booleano che indica se il gioco deve terminare o no 
-        (True se il posizione_nuova è un quadratino del corpo del serpente o se
-        il serpente attraversa la sua coda in direzione diagonale, altrimenti False).
+    segmento1: list
+        lista di due elementi che rappresentano la riga e la colonna del quadratino adiacente lungo le 
+        ordinate a posizione_nuova 
+    segmento2: list
+        lista di due elementi che rappresentano la riga e la colonna del quadratino adiacente lungo le 
+        ascisse a posizione_nuova
 
     """
-    condizione = False
-    segmento1 = [(posizione_nuova[0] - mossa[0]), posizione_nuova[1]]
-    segmento2 = [posizione_nuova[0], [(posizione_nuova[1] - mossa[1])]]
-    if segmento1 in corpo and segmento2 in corpo:
-        condizione = True  
-    return condizione
+    segmento1 = [posizione_nuova[0] - mossa[0], posizione_nuova[1]]
+    segmento2 = [posizione_nuova[0], posizione_nuova[1] - mossa[1]]
+    return segmento1, segmento2
 
 def gioca(start, mosse, food, blocks, righe, colonne):
     """
