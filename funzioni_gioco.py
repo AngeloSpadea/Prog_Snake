@@ -144,7 +144,7 @@ def mangia(corpo, scia_serpente, posizione_nuova, food):
     coda = corpo[-1]
     scia_serpente.insert(0,coda)
     corpo.remove(coda)
-    corpo = [posizione_nuova]+corpo+[posizione_nuova]
+    corpo = [posizione_nuova]+corpo+[coda]
     print(f"il corpo è:{corpo} e la scia è: {scia_serpente}")
     return corpo, scia_serpente
 
