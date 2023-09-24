@@ -207,8 +207,8 @@ def scontro_coda(posizione_nuova, mossa):
         ascisse a posizione_nuova
 
     """
-    segmento1 = [posizione_nuova[0] - mossa[0], posizione_nuova[1]]
-    segmento2 = [posizione_nuova[0], posizione_nuova[1] - mossa[1]]
+    segmento1 = [posizione_nuova[0] - mossa[1], posizione_nuova[1]]
+    segmento2 = [posizione_nuova[0], posizione_nuova[1] - mossa[0]]
     return segmento1, segmento2
 
 def gioca(start, mosse, food, blocks, righe, colonne):
