@@ -7,7 +7,39 @@ Created on Mon Sep 11 18:00:31 2023
 
 import json
 from PIL import Image
+from conversione import convert_image_to_json
 
+from abc import ABC, abstractmethod
+
+class Strategy(ABC):
+    @abstractmethod
+    def execute(self, file_path):
+        pass
+
+class ImageProcessingStrategy(Strategy):
+    def execute(self, campo_gioco):
+        campo_gioco_convertito=convert_image_to_json(campo_gioco)
+        g = open(campo_gioco_convertito)
+        print("Elaborazione immagine PNG")
+        return g
+
+class JsonProcessingStrategy(Strategy):
+    def execute(self, campo_gioco):
+        g = open(campo_gioco)
+        print("Elaborazione file JSON")
+        return g
+       
+def type_of_input(campo_gioco):
+    if campo_gioco.endswith((".png", ".json")):
+        if campo_gioco.endswith(".png"):
+            strategy = ImageProcessingStrategy()
+        else:
+            strategy = JsonProcessingStrategy()
+        g=strategy.execute(campo_gioco)
+    else:
+        print("Formato file non supportato")        
+    return g
+      
 def carico_dati(game_file):
     """
     Funzione che legge i dati da un file JSON specificato e restituisce una tupla 
@@ -29,7 +61,8 @@ def carico_dati(game_file):
     f = open(game_file)
     game = json.load(f)
     field_out = game['field_out']
-    g = open(game['field_in'])
+    campo_gioco = game['field_in']
+    g = type_of_input(campo_gioco)
     field = json.load(g)
     start = game['start']
     mosse = game['moves']    
