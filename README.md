@@ -56,15 +56,14 @@ pip install -r requirements.txt
 
 ## Avviare il gioco
 
-Una volta clonata la repository da terminale collocarsi nella directy di Prog_Snake e avviare il seguente comando
+Una volta clonata la repository, da terminale collocarsi nella directy di Prog_Snake e avviare il seguente comando
 
->Terminale
 ```
 python main.py
 ```
-Verrà cosi avviato il programma con le impostazioni base per caricare la bartita. Copiare il percorso della partita che si vuole caricare e premere invio. All'interno di data troverete gli 8 gamefile di base piu 4 creati da noi per testare alcune funzionalita
+Verrà cosi avviato il programma per caricare la bartita. Copiare il percorso della partita che si vuole caricare e premere invio. All'interno di data troverete gli 8 gamefile di base piu 4 creati da noi per testare alcune funzionalita
 
-Le specifiche per ora implementate sono le seguenti<br>
+Le specifiche implementate sono le seguenti<br>
 
 1  [✓]  La testa del serpente può muoversi nelle otto direzioni stabilite da consegna<br>
 2  [✓]  Oltrepassando un bordo del campo, il serpente riappare dal bordo opposto<br>
@@ -74,39 +73,39 @@ Le specifiche per ora implementate sono le seguenti<br>
 
 
 ___
--------   `AVVERTENZA`   -------
+-------   `AVVERTENZA`   -------<br>
 Se si vogliono testare le funzionalita implementate modificare i test tenere conto però che nella rappresentazione dei punti [i,j] `i` rappresente la `colonna` mentre `j` rappresenta la `riga`
 ___
 
 # Avanzamento del progetto 
 
 ## Indice
-[Utility](#103)
-  [Docker](#105)
-  [Readme](#109)
-  [gitignore](#120)
-[Funzioni principali di Funzioni_gioco](#funzioni-principali-di-funzioni_gioco-1)
-  [gioca](#130)
-  [converti mosse](#145)
-  [controlla](#182)
-  [scontro coda](#197)
-[Funzioni Secondarie di Controlla](#funzioni-secondarie-di-controlla-1)
-  [mangia](#236)
-  [muovi](#266)
-[Funzioni Secondarie di gioca](#funzioni-secondarie-di-gioca)
-  [controlla mossa](#315)
-[Funzioni principali di gestione_input](#funzioni-principali-di-gestione_input-1)
-  [carico dati](#356)
-  [restituisco dati](#367)
-[Main](#main-angelo-1)
+[Utility](#103)<br>
+  [Docker](#1-struttura-docker)<br>
+  [Readme](#2-scheletro-del-readme)<br>
+  [gitignore](#3-gitignore)<br>
+[Funzioni principali di Funzioni_gioco](#funzioni-principali-di-funzioni_gioco-1)<br>
+  [gioca](#4-giocaangelo)<br>
+  [converti mosse](#5-converti_mossemartina)<br>
+  [controlla](#6-controllaantonio)<br>
+  [scontro coda](#7-scontro-codaantonio)<br>
+[Funzioni Secondarie di Controlla](#funzioni-secondarie-di-controlla-1)<br>
+  [mangia](#8-mangia-antonio)<br>
+  [muovi](#9-muovi-martina)<br>
+[Funzioni Secondarie di gioca](#funzioni-secondarie-di-gioca)<br>
+  [controlla mossa](#10-calcolo_mossa-martina)<br>
+[Funzioni principali di gestione_input](#funzioni-principali-di-gestione_input-1)<br>
+  [carico dati](#11-carico_dati-angelo)<br>
+  [restituisco dati](#12-restituisco_dati-antonio)<br>
+[Main](#main-angelo-1)<br>
 
 ### Utility
 ___
-1 __Struttura Docker__
+#### 1 __Struttura Docker__
 [✗] Implementazione<br> 
   0%|------------------------------| 0/1 [00:00 ___________, Commits: _ ]<br>
 ___
-2 __Scheletro del Readme__
+#### 2 __Scheletro del Readme__
 
 [Vai a Readme.md ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/README.md?plain=1)
 
@@ -117,7 +116,7 @@ ___
 100%|██████------------------------| 1/4 [00:00 Sep 15 2023, Commits: 5,6 ]<br>
 `Descrizione`
 ___
-3 __gitignore__
+#### 3 __gitignore__
 
 [Vai a .gitignore ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/.gitignore)
 
@@ -127,7 +126,7 @@ ___
 
 ### Funzioni principali di Funzioni_gioco
 ___
-4 __gioca(Angelo)__
+#### 4 __gioca(Angelo)__
 > il nome della funzione è `def play(parametri):` che si trova nel file `funzioni_gioco.py` alla riga 214
 
 [Vai alla funzine play() ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L214)
@@ -142,7 +141,7 @@ posizione iniziale è una casella valida e per ogni mossa gestisce se il
 serpente deve muoversi, mangiare o se il serpente si blocca facendo 
 terminare così il gioco.
 ___
-5 __Converti_mosse(Martina)__
+#### 5 __Converti_mosse(Martina)__
 > il nome della funzione è `def converti_mosse(parametri):` che si trova nel file `funzioni_gioco.py` alla riga 8
 
 e[Vai alla funzione converti_mosse() ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L8)
@@ -163,9 +162,9 @@ rispettivamente nelle righe e nelle colonne
 
 Verifica che la funzione converti_mosse converta correttamente la direzione verticale Nord (N).<br>
 Parametri: <br>
-    mosse: Nord (N) in punto cardinale.<br>
+- mosse: Nord (N) in punto cardinale.<br>
 Risultato atteso:<br>
-    mosse_convertite: mossa Nord in forma vettoriale.<br>
+- mosse_convertite: mossa Nord in forma vettoriale.<br>
 
 `Test 2`
 > test_verifico_calcola_mossa nel file test_01.py riga 45
@@ -174,12 +173,12 @@ Risultato atteso:<br>
 
 Verifica che la funzione converti_mosse converta correttamente la direzione obliqua Nord-Ovest (NW).<br>
 Parametri: <br>
-    mosse: Nord-Ovest (NW) in punto cardinale.<br>
+- mosse: Nord-Ovest (NW) in punto cardinale.<br>
 Risultato atteso:<br>
-    mosse_convertite: mossa Nord-Ovest in forma vettoriale.<br>
+- mosse_convertite: mossa Nord-Ovest in forma vettoriale.<br>
 
 ___
-6 __Controlla(Antonio)__
+#### 6 __Controlla(Antonio)__
 > il nome della funzione è `def controlla(parametri):` che si trova nel file `funzioni_gioco.py` alla riga 68
 
 [Vai alla funzione controlla() ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L68)
@@ -194,7 +193,7 @@ Funzione che controlla se la posizione nuova è:<br>
 3) casella vuota: allora il serpente si muove<br>
 
 ___
-7 __Scontro coda(Antonio)__
+#### 7 __Scontro coda(Antonio)__
 > il nome della funzione è `def scontro_coda(parametri):` che si trova nel file `funzioni_gioco.py` alla riga 180
 
 [Vai alla funzione controlla() ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L180)
@@ -207,10 +206,10 @@ ___
 Funzione che controlla se il serpente si scontra con la sua coda, tentando di attraversarla.
 Per verificare se il serpente tenta di attraversare la sua coda in direzione diagonale,
 sono stati calcolati:<br>
-segmento1: quadratino adiacente lungo le ordinate a posizione_nuova <br>
-    (traslato orizzontalmente rispetto a posizione_nuova secondo l'ascissa di mossa)<br>
-segmento2: quadratino adiacente lungo le ascisse a posizione_nuova <br>
-    (traslato verticalmente rispetto a posizione_nuova secondo l'ordinata di mossa)<br>
+- segmento1: quadratino adiacente lungo le ordinate a posizione_nuova <br>
+ >(traslato orizzontalmente rispetto a posizione_nuova secondo l'ascissa di mossa)<br>
+- segmento2: quadratino adiacente lungo le ascisse a posizione_nuova <br>
+ >(traslato verticalmente rispetto a posizione_nuova secondo l'ordinata di mossa)<br>
 Se segmento1 e segmento2 appartengono al corpo del serpente, il gioco deve terminare.<br>
 
 `Test 1`
@@ -233,7 +232,7 @@ Risultato atteso: condizione che segnala che lo scontro è avvenuto.<br>
 
 ### Funzioni Secondarie di Controlla
 ___
-8 __Mangia (Antonio)__
+#### 8 __Mangia (Antonio)__
 > il nome della funzione è `def mangia(parametri):` che si trova nel file `funzioni_gioco.py` alla riga 116
 
 [Vai alla funzione mangia() ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L116)
@@ -255,14 +254,14 @@ Verifica che la funzione mangia gestisca correttamente il caso in cui posizione_
 La funzione aggiunge la nuova posizione (dove il cibo è stato mangiato) due volte all'inizio del corpo del serpente,
 facendo crescere il corpo del serpente.<br>
 Parametri: <br>
-    corpo: un solo elemento.<br>
-    scia_serpente: vuota.<br>
-    posizone_nuova.<br>
-    food.<br>
+- corpo: un solo elemento.<br>
+- scia_serpente: vuota.<br>
+- posizone_nuova.<br>
+- food.<br>
 Risultati attesi: corpo, scia_serpente.<br>
 ___
 
-9 __Muovi (Martina)__
+#### 9 __Muovi (Martina)__
 > il nome della funzione è `def muovi(parametri):` che si trova nel file `funzioni_gioco.py` alla riga 151
 
 [Vai alla funzione muovi() ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L151)
@@ -281,9 +280,9 @@ Funzione che fa muovere il serpente
 
 Verifica che la funzione muovi gestisca correttamente il movimento di partenza quando la nuova posizione è vuota.<br>
 Parametri:<br>
-    corpo: un solo elemento.<br>
-    scia_serpente: vuota.<br>
-    posizione_nuova.<br>
+- corpo: un solo elemento.<br>
+- scia_serpente: vuota.<br>
+- posizione_nuova.<br>
 Risultati attesi: corpo, scia_serpente.<br>
 
 `Test 2`
@@ -293,9 +292,9 @@ Risultati attesi: corpo, scia_serpente.<br>
 
 Verifica che la funzione muovi gestisca correttamente il movimento generale.<br>
 Parametri:<br>
-    corpo: un solo elemento.<br>
-    scia_serpente: non vuota.<br>
-    posizione_nuova.<br>
+- corpo: un solo elemento.<br>
+- scia_serpente: non vuota.<br>
+- posizione_nuova.<br>
 Risultati attesi: corpo, scia_serpente.<br>
 
 `Test 3`
@@ -305,14 +304,14 @@ Risultati attesi: corpo, scia_serpente.<br>
 
 Verifica che la funzione muovi gestisca correttamente il movimento quando il serpente è cresciuto.<br>
 Parametri:<br>
-    corpo: più elementi.<br>
-    scia_serpente: non vuota.<br>
-    posizione_nuova.<br>
+- corpo: più elementi.<br>
+- scia_serpente: non vuota.<br>
+- posizione_nuova.<br>
 Risultati attesi: corpo, scia_serpente.<br>
 
 ### Funzioni Secondarie di gioca
 ___
-10 __Calcolo_mossa (Martina)__
+#### 10 __Calcolo_mossa (Martina)__
 > il nome della funzione è `def calcola_mossa(parametri):` che si trova nel file `funzioni_gioco.py` alla riga 39
 
 [Vai alla funzione calcola_mossa() ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L39)
@@ -353,7 +352,7 @@ Risultato atteso: nuova_posizione.<br>
 `Descrizione`
 
 ___
-11 __carico_dati (Angelo)__
+#### 11 __carico_dati (Angelo)__
 > il nome della funzione è `def carico_dati(parametri):` che si trova nel file `gestione_input.py` alla riga 43
 
 [Vai alla funzione carico_dati ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/gestione_input.py#L43)
@@ -364,7 +363,7 @@ ___
 Funzione che dato il file json restituisce le liste necessarie per la gestione del gioco
 
 ___
-12 __restituisco_dati (Antonio)__
+#### 12 __restituisco_dati (Antonio)__
 > il nome della funzione è `def restituisco_dati(parametri):` che si trova nel file `gestione_input.py` alla riga 75
 
 [Vai alla funzione restituisco_dati ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/gestione_input.py#L75)
