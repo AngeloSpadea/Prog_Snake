@@ -62,7 +62,7 @@ Una volta clonata la repository da terminale collocarsi nella directy di Prog_Sn
 ```
 python main.py
 ```
-Verrà cosi avviato il programma con le impostazioni base e restituirà nella cartella output un immagine che riassumerà le posizioni correnti del serpente, la scia infine mostrare le caselle cibo rimaste e le caselle ostacolo.
+Verrà cosi avviato il programma con le impostazioni base per caricare la bartita. Copiare il percorso della partita che si vuole caricare e premere invio. All'interno di data troverete gli 8 gamefile di base piu 4 creati da noi per testare alcune funzionalita
 
 Le specifiche per ora implementate sono le seguenti<br>
 
@@ -70,11 +70,9 @@ Le specifiche per ora implementate sono le seguenti<br>
 2  [✓]  Oltrepassando un bordo del campo, il serpente riappare dal bordo opposto<br>
 3  [✓]  Quando il serpente “mangia” cibo il suo corpo cresce di un quadratino<br>
 4  [✓]  Quando il serpente si scontra con un ostacolo, il gioco termina<br>
-5  [✗]  Quando il serpente si scontra contro la sua stessa coda, il gioco termina. Ciò vale anche quando il serpente tenta di attraversare la sua coda in direzione diagonale<br>
+5  [✓]  Quando il serpente si scontra contro la sua stessa coda, il gioco termina. Ciò vale anche quando il serpente tenta di attraversare la sua coda in direzione diagonale<br>
 
-Di seguito sono riportate le istruzioni per provare due ambienti di gioco con le relative mosse, verrano creati dei file di gioco appositi per verificare il corretto funzionamento delle specifiche marcate con [✓]
 
-E' possibile scegliere il campo da gioco e le mosse che effettuerà il serpente modificando il file `fiel_in.json` e `file_gioco.json`, due esempi di partite si trovano nella cartella `partite` [Vai alla cartella partite ](https://github.com/AngeloSpadea/Prog_Snake/tree/main/partite) per effettuare la modifica copiare il contenuto di `field_01.json` o `field_02.json` e sostituirlo al contenuto di `field_in.json` esegure la medesima operazione per i file `gamefile_*.json` e sostituire il contenuto nel file `file_gioco.json`. 
 ___
 -------   `AVVERTENZA`   -------
 Se si vogliono testare le funzionalita implementate modificare i test tenere conto però che nella rappresentazione dei punti [i,j] `i` rappresente la `colonna` mentre `j` rappresenta la `riga`
@@ -82,6 +80,25 @@ ___
 
 # Avanzamento del progetto 
 
+## Indice
+[Utility](#103)
+  [Docker](#105)
+  [Readme](#109)
+  [gitignore](#120)
+[Funzioni principali di Funzioni_gioco](#funzioni-principali-di-funzioni_gioco-1)
+  [gioca](#130)
+  [converti mosse](#145)
+  [controlla](#182)
+  [scontro coda](#197)
+[Funzioni Secondarie di Controlla](#funzioni-secondarie-di-controlla-1)
+  [mangia](#236)
+  [muovi](#266)
+[Funzioni Secondarie di gioca](#funzioni-secondarie-di-gioca)
+  [controlla mossa](#315)
+[Funzioni principali di gestione_input](#funzioni-principali-di-gestione_input-1)
+  [carico dati](#356)
+  [restituisco dati](#367)
+[Main](#main-angelo-1)
 
 ### Utility
 ___
@@ -110,10 +127,10 @@ ___
 
 ### Funzioni principali di Funzioni_gioco
 ___
-4 __Play(Angelo)__
-> il nome della funzione è `def play(parametri):` che si trova nel file `funzioni_gioco.py` alla riga 182
+4 __gioca(Angelo)__
+> il nome della funzione è `def play(parametri):` che si trova nel file `funzioni_gioco.py` alla riga 214
 
-[Vai alla funzine play() ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L182)
+[Vai alla funzine play() ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L214)
 
 [✓] Implementazione Funzione<br>
 [✓] Implementazione Test<br>
@@ -126,9 +143,9 @@ serpente deve muoversi, mangiare o se il serpente si blocca facendo
 terminare così il gioco.
 ___
 5 __Converti_mosse(Martina)__
-> il nome della funzione è `def converti_mosse(parametri):` che si trova nel file `funzioni_gioco.py` alla riga 9
+> il nome della funzione è `def converti_mosse(parametri):` che si trova nel file `funzioni_gioco.py` alla riga 8
 
-e[Vai alla funzione converti_mosse() ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L9)
+e[Vai alla funzione converti_mosse() ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L8)
 
 [✓] Implementazione Funzione<br>
 [✓] Implementazione Test<br>
@@ -140,42 +157,86 @@ nella forma vettoriale [a,b] dove a e b rappresentano lo spostamentamento
 rispettivamente nelle righe e nelle colonne
 
 `Test 1`
-> test_verifico_calcola_mossa nel file test_01.py riga 21
+> test_verifico_calcola_mossa nel file test_01.py riga 32
 
-[Vai a test_corverti_mosse ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L21)
+[Vai a test_corverti_mosse ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L32)
 
-In questo primo test viene passata alla funzione la lista con le mosse, in questo caso (['N']) dove al suo interno c'è un'unica mossa Nord. La funzione una volta riconosciuta la mossa la converte in un vettore che successivamente viene verificato. Il test avra successo se la conversione come in questo cosa con il risultato [[-1, 0]] avverrà corettamente. Inserendo altri punti cardinali con i relativi vettori si potrà testare il corretto funzionamento della funzione
+Verifica che la funzione converti_mosse converta correttamente la direzione verticale Nord (N).<br>
+Parametri: <br>
+    mosse: Nord (N) in punto cardinale.<br>
+Risultato atteso:<br>
+    mosse_convertite: mossa Nord in forma vettoriale.<br>
 
 `Test 2`
-> test_verifico_calcola_mossa nel file test_01.py riga 25
+> test_verifico_calcola_mossa nel file test_01.py riga 45
 
-[Vai a test_corverti_mosse_oblique ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L25)
+[Vai a test_corverti_mosse_oblique ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L45)
 
-In questo secondo caso andremo ad affrontare il riconoscimento dei punti cardinali con doppio simbolo, come NW NE SO ecc ecc.. La funzione dovrà riconoscere che il punto cardinale sia sincolo e non doppio per poi convertirlo in maniera corretta. In questo caso si esaminerà (['NW']) con il giusto vettore che sarà [[-1, -1]]
+Verifica che la funzione converti_mosse converta correttamente la direzione obliqua Nord-Ovest (NW).<br>
+Parametri: <br>
+    mosse: Nord-Ovest (NW) in punto cardinale.<br>
+Risultato atteso:<br>
+    mosse_convertite: mossa Nord-Ovest in forma vettoriale.<br>
 
 ___
 6 __Controlla(Antonio)__
-> il nome della funzione è `def controlla(parametri):` che si trova nel file `funzioni_gioco.py` alla riga 67
+> il nome della funzione è `def controlla(parametri):` che si trova nel file `funzioni_gioco.py` alla riga 68
 
-[Vai alla funzione controlla() ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L67)
+[Vai alla funzione controlla() ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L68)
 
-[✗] Implementazione Funzione<br>
-[✗] Implementazione Test<br>
-  0%|------------------------------| 0/2 [00:00 ___________, Commits: _ ]<br>
+[✓] Implementazione Funzione<br>
+100%|██████████████████████████████| 1/1 <br>
 `Descrizione`
 
-Funzione che controlla se la posizione nuova è:
-1) un blocco ("block"): allora il gioco deve terminare
-2) una cibo ("food"): allora il serpente deve mangiare e crescere di dimensione
-3) casella vuota: allora il serpente si muove
+Funzione che controlla se la posizione nuova è:<br>
+1) un blocco ("block"): allora il gioco deve terminare<br>
+2) una cibo ("food"): allora il serpente deve mangiare e crescere di dimensione<br>
+3) casella vuota: allora il serpente si muove<br>
 
+___
+7 __Scontro coda(Antonio)__
+> il nome della funzione è `def scontro_coda(parametri):` che si trova nel file `funzioni_gioco.py` alla riga 180
+
+[Vai alla funzione controlla() ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L180)
+
+[✓] Implementazione Funzione<br>
+[✓] Implementazione Test<br>
+100%|██████████████████████████████| 2/2 <br>
+`Descrizione`
+
+Funzione che controlla se il serpente si scontra con la sua coda, tentando di attraversarla.
+Per verificare se il serpente tenta di attraversare la sua coda in direzione diagonale,
+sono stati calcolati:<br>
+segmento1: quadratino adiacente lungo le ordinate a posizione_nuova <br>
+    (traslato orizzontalmente rispetto a posizione_nuova secondo l'ascissa di mossa)<br>
+segmento2: quadratino adiacente lungo le ascisse a posizione_nuova <br>
+    (traslato verticalmente rispetto a posizione_nuova secondo l'ordinata di mossa)<br>
+Se segmento1 e segmento2 appartengono al corpo del serpente, il gioco deve terminare.<br>
+
+`Test 1`
+> test_scontro_coda nel file test_01.py riga 122
+
+[Vai a test_scontro_coda ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L122)
+
+Verifica che la funzione scontro_coda rilevi correttamente lo scontro con la coda in direzione verticale/orizzontale.
+Parametri: corpo, posizione_nuova, mossa.<br>
+Risultato atteso: condizione che segnala che lo scontro è avvenuto.<br>
+
+`Test 2`
+> test_scontro_coda_direzione_diagonale nel file test_01.py riga 133
+
+[Vai a test_scontro_coda_direzione_diagonale ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L133)
+
+Verifica che la funzione scontro_coda rilevi correttamente lo scontro con la coda in direzione diagonale.<br>
+Parametri: corpo, posizione_nuova, mossa.<br>
+Risultato atteso: condizione che segnala che lo scontro è avvenuto.<br>
 
 ### Funzioni Secondarie di Controlla
 ___
-7 __Mangia (Antonio)__
-> il nome della funzione è `def mangia(parametri):` che si trova nel file `funzioni_gioco.py` alla riga 98
+8 __Mangia (Antonio)__
+> il nome della funzione è `def mangia(parametri):` che si trova nel file `funzioni_gioco.py` alla riga 116
 
-[Vai alla funzione mangia() ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L98)
+[Vai alla funzione mangia() ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L116)
 
 [✓] Implementazione Funzione<br>
 [✓] Implementazione Test<br>
@@ -186,30 +247,25 @@ Funzione che fa mangiare al serpente il cibo, il quale viene rimosso dalla
 lista del cibo.
 
 `Test 1`
-> test_mangia nel file test_01.py riga 29
+> test_mangia nel file test_01.py riga 58
 
-[Vai a test_corverti_mosse_oblique ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L29)
+[Vai a test_corverti_mosse_oblique ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L58)
 
-In questo test si analizzerà il caso in cui il movimento del sepente cadrà sopra ad una casella cibo. Nella funzione mangia verranno pessati 4 parametri. Il primo paramentro rappresenta il corpo del serpente, con tutte le caselle occupate, il secondo paramentro rappresenterà invece la scia prodotta, il terzo paramentro sarà la nuova possizione della testa ed in fine ci sara il campo da gioco che viene definito alla riga 5 [ Vai campo_da_gioco ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L5). 
-Il test per avere successo verificherà 3 parametri il primo collocato in result[0] verifica che il serpente abbia mangiato e si sia allungato di 2, il secondo parametro result[1] verifica che la scia sia aggiornata e il terzo parametro controlla se la casella cibo mangiata sia stata poi eliminata dalla variabile campo_da_gioco
+Verifica che la funzione mangia gestisca correttamente il caso in cui posizione_nuova sia occupata da un cipo.
+La funzione aggiunge la nuova posizione (dove il cibo è stato mangiato) due volte all'inizio del corpo del serpente,
+facendo crescere il corpo del serpente.<br>
+Parametri: <br>
+    corpo: un solo elemento.<br>
+    scia_serpente: vuota.<br>
+    posizone_nuova.<br>
+    food.<br>
+Risultati attesi: corpo, scia_serpente.<br>
 ___
-8 __Termina (Angelo)__
-> il nome della funzione è `def termina(parametri):` che si trova nel file `funzioni_gioco.py` alla riga 166
 
-[Vai alla funzione termina() ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L166)
-
-[✓] Implementazione Funzione<br>
-[✗] Implementazione Test<br>
- 50%|███████████████---------------| 1/2 [00:00 Sep 15 2023, Commits: 8 ]<br>
- `Descrizione`
-
- Funzione che fa terminare il gioco
-
-___
 9 __Muovi (Martina)__
-> il nome della funzione è `def muovi(parametri):` che si trova nel file `funzioni_gioco.py` alla riga 133
+> il nome della funzione è `def muovi(parametri):` che si trova nel file `funzioni_gioco.py` alla riga 151
 
-[Vai alla funzione muovi() ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L133)
+[Vai alla funzione muovi() ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L151)
 
 [✓] Implementazione Funzione<br>
 [✓] Implementazione Test<br>
@@ -219,26 +275,47 @@ ___
 Funzione che fa muovere il serpente
 
 `Test 1`
-> test_muovi_start nel file test_01.py riga 35
+> test_muovi_start nel file test_01.py riga 77
 
-[Vai a test_muovi_start ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L35)
+[Vai a test_muovi_start ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L77)
+
+Verifica che la funzione muovi gestisca correttamente il movimento di partenza quando la nuova posizione è vuota.<br>
+Parametri:<br>
+    corpo: un solo elemento.<br>
+    scia_serpente: vuota.<br>
+    posizione_nuova.<br>
+Risultati attesi: corpo, scia_serpente.<br>
 
 `Test 2`
-> test_muovi nel file test_01.py riga 40
+> test_muovi nel file test_01.py riga 92
 
-[Vai a test_muovi ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L40)
+[Vai a test_muovi ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L92)
+
+Verifica che la funzione muovi gestisca correttamente il movimento generale.<br>
+Parametri:<br>
+    corpo: un solo elemento.<br>
+    scia_serpente: non vuota.<br>
+    posizione_nuova.<br>
+Risultati attesi: corpo, scia_serpente.<br>
 
 `Test 3`
-> test_muovi_da_cresciuto nel file test_01.py riga 45
+> test_muovi_da_cresciuto nel file test_01.py riga 107
 
-[Vai a test_muovi_da_cresciuto ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L25)
+[Vai a test_muovi_da_cresciuto ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L107)
 
-### Funzioni Secondarie di Play
+Verifica che la funzione muovi gestisca correttamente il movimento quando il serpente è cresciuto.<br>
+Parametri:<br>
+    corpo: più elementi.<br>
+    scia_serpente: non vuota.<br>
+    posizione_nuova.<br>
+Risultati attesi: corpo, scia_serpente.<br>
+
+### Funzioni Secondarie di gioca
 ___
 10 __Calcolo_mossa (Martina)__
-> il nome della funzione è `def calcola_mossa(parametri):` che si trova nel file `funzioni_gioco.py` alla riga 40
+> il nome della funzione è `def calcola_mossa(parametri):` che si trova nel file `funzioni_gioco.py` alla riga 39
 
-[Vai alla funzione calcola_mossa() ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L40)
+[Vai alla funzione calcola_mossa() ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/funzioni_gioco.py#L39)
 
 [✓] Implementazione Funzione<br>
 [✓] Implementazione Test<br>
@@ -248,18 +325,23 @@ ___
 Funzione che calcola la nuova posizione della testa tenendo conto della dimensione del campo da gioco.
 
 `Test 1`
-> test_verifico_calcola_mossa nel file test_01.py riga 13
+> test_verifico_calcola_mossa nel file test_01.py riga 8
 
-[Vai a test_verifico_calcola_mossa ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L13)
+[Vai a test_verifico_calcola_mossa ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L8)
 
-Nel Test verifichiamo che il movimento sia quello corretto. I paramentri di ingresso di calcolo mossa sono il `corpo` composto dalla sola testa nella posizione (2,0), la `direzione` che deve prendere il serpente in questo caso est rappresentato dal vettore (0,1) e infine le `dimensioni del campo` prima le righe e poi le collone. Inserendo un qualsiasi `corpo del serpente` e un `vettore direzione` il `risultato del test` sarà positivo se la testa del serpente si muovera nella `direzione corretta`. Esempio `testa` (2,0) `direzione` (1,0) `risultato` la posizione della testa si troverà in (2,1).
+Verifica che la funzione calcola_mossa funzioni correttamente restituendo la nuova posizione.<br>
+Parametri: corpo, mossa, righe, colonne.<br>
+Risultato atteso: nuova posizione. <br>
 
 `Test 2`
 > test_verifico_calcola_mossa_con_uscita_dal_bordo nel file test_01.py riga 17
 
-[Vai a test_verifico_calcola_mossa_con_uscita_dal_bordo nel file ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L17)
+[Vai a test_verifico_calcola_mossa_con_uscita_dal_bordo nel file ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L20)
 
-Nel Test verifichiamo cosa succede se la testa del serpente esce fuori dal bordo del campo. I paramentri di ingresso di calcolo mossa sono il `corpo` composto dalla sola testa nella posizione (3,5), la `direzione` che deve prendere il serpente in questo caso nord-est rappresentato dal vettore (1,1) e infine le `dimensioni del campo` prima le righe 4 e poi le collone 6. La nuova `posizione` calcolata dalla funzione dovrebbe essere (4,6) ma considerando che le collone sono 6 partendo da 0 la posizione (4,6) non è accettabile perchè il serpente `attraverserà il bordo` e si ritrovarà dall'altra parte nel campo, `posizione` (0,0).
+Verifica che la funzione calcola_mossa gestisca correttamente l'uscita dal bordo,
+facendo ricomparire la testa del serpente dal bordo opposto.<br>
+Parametri: corpo, mossa, righe, colonne.<br>
+Risultato atteso: nuova_posizione.<br>
 
 ### Funzioni principali di gestione_input
 
@@ -272,9 +354,9 @@ Nel Test verifichiamo cosa succede se la testa del serpente esce fuori dal bordo
 
 ___
 11 __carico_dati (Angelo)__
-> il nome della funzione è `def carico_dati(parametri):` che si trova nel file `gestione_input.py` alla riga 10
+> il nome della funzione è `def carico_dati(parametri):` che si trova nel file `gestione_input.py` alla riga 43
 
-[Vai alla funzione carico_dati ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/gestione_input.py#L10)
+[Vai alla funzione carico_dati ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/gestione_input.py#L43)
 
 [✓] Implementazione Test<br>
 100%|██████████████████████████████| 1/1 [00:00 Sep 18 2023, Commits: 19 ]<br>
@@ -283,13 +365,13 @@ Funzione che dato il file json restituisce le liste necessarie per la gestione d
 
 ___
 12 __restituisco_dati (Antonio)__
-> il nome della funzione è `def restituisco_dati(parametri):` che si trova nel file `gestione_input.py` alla riga 40
+> il nome della funzione è `def restituisco_dati(parametri):` che si trova nel file `gestione_input.py` alla riga 75
 
-[Vai alla funzione restituisco_dati ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/gestione_input.py#L40)
+[Vai alla funzione restituisco_dati ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/gestione_input.py#L75)
 
 [✓] Implementazione Funzione<br>
-[✗] Implementazione Test<br>
- 50%|███████████████---------------| 1/2 [00:00 ___________, Commits: _ ]<br>
+[✓] Implementazione Test<br>
+100%|██████████████████████████████| 1/1<br>
   `Descrizione`
   Funzione che restituisce i dati finali
 
@@ -298,14 +380,6 @@ ___
 
 [Vai a nel main.py ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/main.py)
 
-[✗] Implementazione Funzione<br>
-[✗] Implementazione Test<br>
-  20%|██████------------------------| 0/2 [00:00 Sep  6 2023, Commits: 1 ]<br>
+[✓] Implementazione Funzione<br>
+100%|██████████████████████████████| 1/1 [00:00 Sep  6 2023, Commits: 1 ]<br>
   `Descrizione`
-
-
-## Note
-Bisogna gestire ancora quando la testa atraversa il corpo<br>
-Opzioni<br> 
-    1 --> Scrittura di una nuova funzione<br>
-    2 --> Inserimento all'interno di Controlla<br>
