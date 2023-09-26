@@ -1,15 +1,15 @@
 # Prog_Snake
 ## Progetto realizzato da Martina, Angelo e Antonio
 
-Questa repository contiene un'implementazione in Python del famoso gioco snake
+Questa repository contiene un'implementazione in Python del famoso gioco Snake.
 
 ## Introduzione
 
-Questo programma prevede l'implementazione del gioco da riga di comando, risaltando piu le meccaniche del gioco rispetto all'interfaccia grafica che rimarrà minimale. 
+Questo programma prevede l'implementazione del gioco da riga di comando, esaltando maggiormente le meccaniche del gioco rispetto all'interfaccia grafica che rimarrà minimale. 
 
 ## Descrizione del gioco
 
-Nel gioco dello Snake, un serpente si muove su un campo rettangolare costituito da NxM quadratini. Il serpente all’inizio del gioco è costituito da un unico quadratino. Ogni quadratino del campo può:<br>
+Nel gioco Snake, un serpente si muove su un campo rettangolare costituito da NxM quadratini. Il serpente, all’inizio del gioco, è costituito da un unico quadratino. Ogni quadratino del campo può:<br>
 
 - contenere cibo;
 - contenere un ostacolo;
@@ -27,7 +27,7 @@ la testa del serpente può muoversi nelle seguenti otto direzioni:<br>
 - SW – Sud-Ovest;
 
 oltrepassando un bordo del campo, il serpente riappare dal bordo opposto;
-- quando il serpente “mangia” cibo il suo corpo cresce di un quadratino;
+- quando il serpente “mangia” cibo, il suo corpo cresce di un quadratino;
 - quando il serpente si scontra con un ostacolo, il gioco termina;
 - quando il serpente si scontra contro la sua stessa coda, il gioco termina.
 
@@ -35,32 +35,34 @@ oltrepassando un bordo del campo, il serpente riappare dal bordo opposto;
 
 Una volta configurato corretamente il gioco si avvierà il `main.py` da terminale come illustrato in [Avvio Progetto](#avvio-progetto). Il programma si avvierà e richiederà di indicare il percorso file della partita che vogliamo caricare, una volta inserito il percorso file si preme invio. Le partite a disposizione si trovano nella cartella `data` e sono 8 `gamefile_*` * --> `numero partita` e 4 `gamefile_*` * --> `nome partita`. Il programma eseguira la partita e restituira un'immagine con il riassunto della partita e stamperà la lunghezza del corpo del serpente. Nell'immagine generata avremo colorato in verde il corpo del serpente, in grigio la scia ossia tutte le mosse che ha effettuato il serpente e in fine in rosso i blocchi e in arancione il cibo rimanente. Questo file verrà salvato nella cartella `data` con il nome `fine_fild_*` * --> `numero partita` oppure per le partite con nome sara solo `fine_fild`.
 
+### Funzioni principali di "funzioni_gioco":
 
-### Funzioni principali di Funzioni_gioco
-
-#### Gioca(Angelo)
+#### gioca (Angelo)
 > def gioca(start, mosse, food, blocks, righe, colonne):
 
-#### Converti_mosse(Martina)
+#### converti_mosse (Martina)
 > def converti_mosse(mosse):
 
-#### Controlla(Antonio)
+#### controlla (Antonio)
 > def controlla(corpo, scia_serpente, posizione_nuova, food, blocks, mossa):
 
-### Funzioni Secondarie di Controlla
+### Funzioni Secondarie di "controlla":
 
-#### Mangia (Antonio)
+#### mangia (Antonio)
 > def mangia(corpo, scia_serpente, posizione_nuova, food):
 
-#### Muovi (Martina)
+#### muovi (Martina)
 > def muovi(corpo, scia_serpente, posizione_nuova):
 
-### Funzioni Secondarie di Play
+#### scontro_coda (Martina)
+> def scontro_coda(posizione_nuova, mossa):
 
-#### Calcolo_mossa (Martina)
+### Funzioni Secondarie di "gioca":
+
+#### calcolo_mossa (Martina)
 > def calcola_mossa(corpo, mossa, righe, colonne):
 
-### Funzioni principali di gestione_input
+### Funzioni principali di "gestione_input":
 
 #### carico_dati (Angelo)
 > def carico_dati(game_file):
@@ -68,7 +70,10 @@ Una volta configurato corretamente il gioco si avvierà il `main.py` da terminal
 #### restituisco_dati (Antonio)
 > def restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, final_field):
 
-### Main (Angelo)
+### Funzione di "main":
+
+#### play (Angelo)
+> def play(game_file: str) -> int:
 
 
 
