@@ -103,7 +103,7 @@ def controlla(corpo, scia_serpente, posizione_nuova, food, blocks, mossa):
     """
     condizione = False
     segmento1, segmento2 = scontro_coda(posizione_nuova, mossa)
-    if posizione_nuova in blocks or posizione_nuova in corpo or (segmento1 in corpo and segmento2 in corpo):
+    if posizione_nuova in blocks or posizione_nuova in corpo[:len(corpo)-1] or (segmento1 in corpo and segmento2 in corpo):
         condizione = True
     elif posizione_nuova in food:
         corpo, scia_serpente = mangia(corpo, scia_serpente, posizione_nuova, food)
