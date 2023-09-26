@@ -70,10 +70,31 @@ Una volta configurato corretamente il gioco si avvierà il `main.py` da terminal
 #### restituisco_dati (Antonio)
 > def restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, final_field):
 
+### Design Pattern Strategy di "gestione_imput" ():
+> class Strategy(ABC):
+
+che dichiara il metodo:
+
+> def execute(self, file_path):
+
+#### Sottoclasse ImageProcessingStrategy:
+> class ImageProcessingStrategy(Strategy):
+
+#### Sottoclasse JsonProcessingStrategy:
+> class JsonProcessingStrategy(Strategy):
+
+#### Funzione type_of_input:
+> def type_of_input(campo_gioco):
+
 ### Funzione di "main":
 
 #### play (Angelo)
 > def play(game_file: str) -> int:
+
+### Funzione di "conversione":
+
+#### convert_image_to_json ()
+> def convert_image_to_json(image_path):
 
 
 
@@ -125,14 +146,14 @@ pip install -r requirements.txt
 
 ## Avviare il gioco
 
-Una volta clonata la repository, da terminale collocarsi nella directy di Prog_Snake e avviare il seguente comando
+Una volta clonata la repository, da terminale collocarsi nella directy di Prog_Snake e avviare il seguente comando:
 
 ```
 python main.py
 ```
-Verrà cosi avviato il programma per caricare la bartita. Copiare il percorso della partita che si vuole caricare e premere invio. All'interno di data troverete gli 8 gamefile di base piu 4 creati da noi per testare alcune funzionalita
+Verrà cosi avviato il programma per caricare la partita. Copiare il percorso della partita che si vuole caricare e premere invio. All'interno di data si trovano gli 8 gamefile di base e 4 gamefile creati da noi per testare alcune funzionalità.
 
-Le specifiche implementate sono le seguenti<br>
+Le specifiche implementate sono le seguenti:<br>
 
 1  [✓]  La testa del serpente può muoversi nelle otto direzioni stabilite da consegna<br>
 2  [✓]  Oltrepassando un bordo del campo, il serpente riappare dal bordo opposto<br>
@@ -143,14 +164,14 @@ Le specifiche implementate sono le seguenti<br>
 
 ___
 -------   `AVVERTENZA`   -------<br>
-Se si vogliono testare le funzionalita implementate modificare i test tenere conto però che nella rappresentazione dei punti [i,j] `i` rappresente la `colonna` mentre `j` rappresenta la `riga`
+Se si vogliono testare le funzionalità implementate, modificare i test tenendo conto del fatto che, nella rappresentazione dei punti [i,j], `i` rappresente la `colonna` mentre `j` rappresenta la `riga`.
 ___
 
 # Avvio Progetto in un docker
 
 CMD ["python", "main.py"]
 
-Da terminale eseguire i seguenti comandi
+Da terminale eseguire i seguenti comandi:
 
 ## Creazione Immagine: 
 
@@ -162,7 +183,7 @@ Dove:
 
 - `NOME_IMMAGINE` è il nome che desideri assegnare all'immagine.
 - `TAG` è una versione o un identificatore specifico per l'immagine.
-- `PERCORSO_DOCKERFILE` è il percorso al tuo Dockerfile. Se il Dockerfile si trova nella directory corrente, puoi utilizzare `.` per indicare la directory corrente.
+- `PERCORSO_DOCKERFILE` è il percorso al tuo Dockerfile. Se il Dockerfile si trova nella directory corrente, si può utilizzare `.` per indicare la directory corrente.
 
 ## Esecuzione 
 
@@ -232,9 +253,9 @@ ___
 `Descrizione`
 
 Funzione che gestisce il gioco: converte le mosse, controlla se la 
-posizione iniziale è una casella valida e per ogni mossa gestisce se il 
-serpente deve muoversi, mangiare o se il serpente si blocca facendo 
-terminare così il gioco.
+posizione iniziale è una casella valida e, per ogni mossa, gestisce se il 
+serpente deve muoversi, mangiare o se si blocca facendo 
+terminare il gioco.
 ___
 #### 5 __Converti_mosse(Martina)__
 > il nome della funzione è `def converti_mosse(parametri):` che si trova nel file `funzioni_gioco.py` alla riga 8
@@ -247,8 +268,8 @@ e[Vai alla funzione converti_mosse() ](https://github.com/AngeloSpadea/Prog_Snak
 `Descrizione`
 
 Funzione che converte tutte le mosse scritte nella forma dei punti cardinali
-nella forma vettoriale [a,b] dove a e b rappresentano lo spostamentamento 
-rispettivamente nelle righe e nelle colonne
+nella forma vettoriale [a,b], dove a e b rappresentano lo spostamentamento 
+rispettivamente nelle righe e nelle colonne.
 
 `Test 1`
 > test_verifico_calcola_mossa nel file test_01.py riga 32
