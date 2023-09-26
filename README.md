@@ -9,7 +9,31 @@ Questo programma prevede l'implementazione del gioco da riga di comando, risalta
 
 ## Descrizione del gioco
 
+Nel gioco dello Snake, un serpente si muove su un campo rettangolare costituito da NxM quadratini. Il serpente all’inizio del gioco è costituito da un unico quadratino. Ogni quadratino del campo può:<br>
+
+- contenere cibo;
+- contenere un ostacolo;
+- essere vuoto.
+Valgono le seguenti regole di gioco:<br>
+
+la testa del serpente può muoversi nelle seguenti otto direzioni:<br>
+- N – Nord;
+- S – Sud;
+- E – Est;
+- W – Ovest;
+- NE – Nord-Est;
+- NW – Nord-Ovest;
+- SE – Sud-Est;
+- SW – Sud-Ovest;
+
+oltrepassando un bordo del campo, il serpente riappare dal bordo opposto;
+- quando il serpente “mangia” cibo il suo corpo cresce di un quadratino;
+- quando il serpente si scontra con un ostacolo, il gioco termina;
+- quando il serpente si scontra contro la sua stessa coda, il gioco termina.
+
 ## Funzionamento
+
+Una volta configurato corretamente il gioco si avvierà il `main.py` da terminale come illustrato di seguito. Il programma si avvierà e richiederà di indicare il percorso file della partita che vogliamo caricare, una volta inserito il percorso file si preme invio. Le partite a disposizione si trovano in data e sono 8 `gamefile_*` * --> `numero partita` e 4 `gamefile_*` * --> `nome partita`. Il programma eseguira la partita e restituira un'immagine con il riassunto della partita. Nel file generato avremo colorato in verde il corpo del serpente, in grigio la scia ossia tutte le mosse che ha effettuato il serpente e in fine in rosso i blocchi e in arancione il cibo rimanente. Questo file verrà salvato nella cartella `data` con il nome `fine_fild_*` * --> `numero partita` oppure per le partite con nome sara solo `fine_fild`.
 
 ### Funzioni principali di Funzioni_gioco
 
@@ -80,23 +104,23 @@ ___
 # Avanzamento del progetto 
 
 ## Indice
-[Utility](#103)<br>
-  [Docker](#1-struttura-docker)<br>
-  [Readme](#2-scheletro-del-readme)<br>
-  [gitignore](#3-gitignore)<br>
+[Utility](#utility)<br>
+- [Docker](#1-struttura-docker)<br>
+- [Readme](#2-scheletro-del-readme)<br>
+- [gitignore](#3-gitignore)<br>
 [Funzioni principali di Funzioni_gioco](#funzioni-principali-di-funzioni_gioco-1)<br>
-  [gioca](#4-giocaangelo)<br>
-  [converti mosse](#5-converti_mossemartina)<br>
-  [controlla](#6-controllaantonio)<br>
-  [scontro coda](#7-scontro-codaantonio)<br>
+- [gioca](#4-giocaangelo)<br>
+- [converti mosse](#5-converti_mossemartina)<br>
+- [controlla](#6-controllaantonio)<br>
+- [scontro coda](#7-scontro-codaantonio)<br>
 [Funzioni Secondarie di Controlla](#funzioni-secondarie-di-controlla-1)<br>
-  [mangia](#8-mangia-antonio)<br>
-  [muovi](#9-muovi-martina)<br>
+- [mangia](#8-mangia-antonio)<br>
+- [muovi](#9-muovi-martina)<br>
 [Funzioni Secondarie di gioca](#funzioni-secondarie-di-gioca)<br>
-  [controlla mossa](#10-calcolo_mossa-martina)<br>
+- [controlla mossa](#10-calcolo_mossa-martina)<br>
 [Funzioni principali di gestione_input](#funzioni-principali-di-gestione_input-1)<br>
-  [carico dati](#11-carico_dati-angelo)<br>
-  [restituisco dati](#12-restituisco_dati-antonio)<br>
+- [carico dati](#11-carico_dati-angelo)<br>
+- [restituisco dati](#12-restituisco_dati-antonio)<br>
 [Main](#main-angelo-1)<br>
 
 ### Utility
@@ -161,10 +185,10 @@ rispettivamente nelle righe e nelle colonne
 [Vai a test_corverti_mosse ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L32)
 
 Verifica che la funzione converti_mosse converta correttamente la direzione verticale Nord (N).<br>
-Parametri: <br>
-- mosse: Nord (N) in punto cardinale.<br>
-Risultato atteso:<br>
-- mosse_convertite: mossa Nord in forma vettoriale.<br>
+`Parametri`: <br>
+- mosse: `Nord (N)` in punto cardinale.<br>
+`Risultato atteso`:<br>
+- mosse_convertite: mossa `Nord` in forma vettoriale.<br>
 
 `Test 2`
 > test_verifico_calcola_mossa nel file test_01.py riga 45
@@ -172,10 +196,10 @@ Risultato atteso:<br>
 [Vai a test_corverti_mosse_oblique ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L45)
 
 Verifica che la funzione converti_mosse converta correttamente la direzione obliqua Nord-Ovest (NW).<br>
-Parametri: <br>
-- mosse: Nord-Ovest (NW) in punto cardinale.<br>
-Risultato atteso:<br>
-- mosse_convertite: mossa Nord-Ovest in forma vettoriale.<br>
+`Parametri`: <br>
+- mosse: `Nord-Ovest (NW)` in punto cardinale.<br>
+`Risultato atteso`:<br>
+- mosse_convertite: mossa `Nord-Ovest` in forma vettoriale.<br>
 
 ___
 #### 6 __Controlla(Antonio)__
@@ -206,9 +230,9 @@ ___
 Funzione che controlla se il serpente si scontra con la sua coda, tentando di attraversarla.
 Per verificare se il serpente tenta di attraversare la sua coda in direzione diagonale,
 sono stati calcolati:<br>
-- segmento1: quadratino adiacente lungo le ordinate a posizione_nuova <br>
+- `segmento1`: quadratino adiacente lungo le ordinate a posizione_nuova <br>
  >(traslato orizzontalmente rispetto a posizione_nuova secondo l'ascissa di mossa)<br>
-- segmento2: quadratino adiacente lungo le ascisse a posizione_nuova <br>
+- `segmento2`: quadratino adiacente lungo le ascisse a posizione_nuova <br>
  >(traslato verticalmente rispetto a posizione_nuova secondo l'ordinata di mossa)<br>
 Se segmento1 e segmento2 appartengono al corpo del serpente, il gioco deve terminare.<br>
 
@@ -218,8 +242,8 @@ Se segmento1 e segmento2 appartengono al corpo del serpente, il gioco deve termi
 [Vai a test_scontro_coda ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L122)
 
 Verifica che la funzione scontro_coda rilevi correttamente lo scontro con la coda in direzione verticale/orizzontale.
-Parametri: corpo, posizione_nuova, mossa.<br>
-Risultato atteso: condizione che segnala che lo scontro è avvenuto.<br>
+`Parametri`: corpo, posizione_nuova, mossa.<br>
+`Risultato atteso`: condizione che segnala che lo scontro è avvenuto.<br>
 
 `Test 2`
 > test_scontro_coda_direzione_diagonale nel file test_01.py riga 133
@@ -227,8 +251,8 @@ Risultato atteso: condizione che segnala che lo scontro è avvenuto.<br>
 [Vai a test_scontro_coda_direzione_diagonale ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L133)
 
 Verifica che la funzione scontro_coda rilevi correttamente lo scontro con la coda in direzione diagonale.<br>
-Parametri: corpo, posizione_nuova, mossa.<br>
-Risultato atteso: condizione che segnala che lo scontro è avvenuto.<br>
+`Parametri`: corpo, posizione_nuova, mossa.<br>
+`Risultato atteso`: condizione che segnala che lo scontro è avvenuto.<br>
 
 ### Funzioni Secondarie di Controlla
 ___
@@ -253,12 +277,12 @@ lista del cibo.
 Verifica che la funzione mangia gestisca correttamente il caso in cui posizione_nuova sia occupata da un cipo.
 La funzione aggiunge la nuova posizione (dove il cibo è stato mangiato) due volte all'inizio del corpo del serpente,
 facendo crescere il corpo del serpente.<br>
-Parametri: <br>
+`Parametri`: <br>
 - corpo: un solo elemento.<br>
 - scia_serpente: vuota.<br>
 - posizone_nuova.<br>
 - food.<br>
-Risultati attesi: corpo, scia_serpente.<br>
+`Risultati attesi`: corpo, scia_serpente.<br>
 ___
 
 #### 9 __Muovi (Martina)__
@@ -279,11 +303,11 @@ Funzione che fa muovere il serpente
 [Vai a test_muovi_start ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L77)
 
 Verifica che la funzione muovi gestisca correttamente il movimento di partenza quando la nuova posizione è vuota.<br>
-Parametri:<br>
+`Parametri`:<br>
 - corpo: un solo elemento.<br>
 - scia_serpente: vuota.<br>
 - posizione_nuova.<br>
-Risultati attesi: corpo, scia_serpente.<br>
+`Risultati attesi`: corpo, scia_serpente.<br>
 
 `Test 2`
 > test_muovi nel file test_01.py riga 92
@@ -291,11 +315,11 @@ Risultati attesi: corpo, scia_serpente.<br>
 [Vai a test_muovi ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L92)
 
 Verifica che la funzione muovi gestisca correttamente il movimento generale.<br>
-Parametri:<br>
+`Parametri`:<br>
 - corpo: un solo elemento.<br>
 - scia_serpente: non vuota.<br>
 - posizione_nuova.<br>
-Risultati attesi: corpo, scia_serpente.<br>
+`Risultati attesi`: corpo, scia_serpente.<br>
 
 `Test 3`
 > test_muovi_da_cresciuto nel file test_01.py riga 107
@@ -303,11 +327,11 @@ Risultati attesi: corpo, scia_serpente.<br>
 [Vai a test_muovi_da_cresciuto ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/test_01.py#L107)
 
 Verifica che la funzione muovi gestisca correttamente il movimento quando il serpente è cresciuto.<br>
-Parametri:<br>
+`Parametri`:<br>
 - corpo: più elementi.<br>
 - scia_serpente: non vuota.<br>
 - posizione_nuova.<br>
-Risultati attesi: corpo, scia_serpente.<br>
+`Risultati attesi`: corpo, scia_serpente.<br>
 
 ### Funzioni Secondarie di gioca
 ___
@@ -339,8 +363,8 @@ Risultato atteso: nuova posizione. <br>
 
 Verifica che la funzione calcola_mossa gestisca correttamente l'uscita dal bordo,
 facendo ricomparire la testa del serpente dal bordo opposto.<br>
-Parametri: corpo, mossa, righe, colonne.<br>
-Risultato atteso: nuova_posizione.<br>
+`Parametri`: corpo, mossa, righe, colonne.<br>
+`Risultato atteso`: nuova_posizione.<br>
 
 ### Funzioni principali di gestione_input
 
@@ -381,4 +405,3 @@ ___
 
 [✓] Implementazione Funzione<br>
 100%|██████████████████████████████| 1/1 [00:00 Sep  6 2023, Commits: 1 ]<br>
-  `Descrizione`
