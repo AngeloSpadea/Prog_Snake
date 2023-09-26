@@ -107,6 +107,32 @@ ___
 Se si vogliono testare le funzionalita implementate modificare i test tenere conto però che nella rappresentazione dei punti [i,j] `i` rappresente la `colonna` mentre `j` rappresenta la `riga`
 ___
 
+# Avvio Progetto in un docker
+
+CMD ["python", "main.py"]
+
+Da terminale eseguire i seguenti comandi
+
+## Creazione Immagine: 
+
+```
+docker build -t NOME_IMMAGINE:TAG PERCORSO_DOCKERFILE
+
+```
+Dove:
+
+- `NOME_IMMAGINE` è il nome che desideri assegnare all'immagine.
+- `TAG` è una versione o un identificatore specifico per l'immagine.
+- `PERCORSO_DOCKERFILE` è il percorso al tuo Dockerfile. Se il Dockerfile si trova nella directory corrente, puoi utilizzare `.` per indicare la directory corrente.
+
+## Installare le dipendenze
+
+```
+docker run -it NOME_IMMAGINE
+
+```
+Dove: `modalità interattiva` (-i) e con un `terminale` (-t) 
+
 # Avanzamento del progetto 
 
 ## Indice
