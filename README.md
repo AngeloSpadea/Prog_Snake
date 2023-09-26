@@ -136,24 +136,24 @@ Dove: `modalità interattiva` (-i) e con un `terminale` (-t)
 # Avanzamento del progetto 
 
 ## Indice
-### [Utility](#utility)<br>
+##### [Utility](#utility)
 - [Docker](#1-struttura-docker)<br>
 - [Readme](#2-scheletro-del-readme)<br>
-- [gitignore](#3-gitignore)<br>
-[Funzioni principali di Funzioni_gioco](#funzioni-principali-di-funzioni_gioco-1)<br>
+- [gitignore](#3-gitignore)
+##### [Funzioni principali di Funzioni_gioco](#funzioni-principali-di-funzioni_gioco-1)<br>
 - [gioca](#4-giocaangelo)<br>
 - [converti mosse](#5-converti_mossemartina)<br>
 - [controlla](#6-controllaantonio)<br>
-- [scontro coda](#7-scontro-codaantonio)<br>
-[Funzioni Secondarie di Controlla](#funzioni-secondarie-di-controlla-1)<br>
+- [scontro coda](#7-scontro-codaantonio)
+##### [Funzioni Secondarie di Controlla](#funzioni-secondarie-di-controlla-1)<br>
 - [mangia](#8-mangia-antonio)<br>
-- [muovi](#9-muovi-martina)<br>
-[Funzioni Secondarie di gioca](#funzioni-secondarie-di-gioca)<br>
-- [controlla mossa](#10-calcolo_mossa-martina)<br>
-[Funzioni principali di gestione_input](#funzioni-principali-di-gestione_input-1)<br>
+- [muovi](#9-muovi-martina)
+##### [Funzioni Secondarie di gioca](#funzioni-secondarie-di-gioca)<br>
+- [controlla mossa](#10-calcolo_mossa-martina)
+##### [Funzioni principali di gestione_input](#funzioni-principali-di-gestione_input-1)<br>
 - [carico dati](#11-carico_dati-angelo)<br>
-- [restituisco dati](#12-restituisco_dati-antonio)<br>
-[Main](#main-angelo-1)<br>
+- [restituisco dati](#12-restituisco_dati-antonio)
+##### [Main](#main-angelo-1)<br>
 
 ### Utility
 ___
