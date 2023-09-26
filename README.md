@@ -125,7 +125,7 @@ Dove:
 - `TAG` è una versione o un identificatore specifico per l'immagine.
 - `PERCORSO_DOCKERFILE` è il percorso al tuo Dockerfile. Se il Dockerfile si trova nella directory corrente, puoi utilizzare `.` per indicare la directory corrente.
 
-## Installare le dipendenze
+## Esecuzione 
 
 ```
 docker run -it NOME_IMMAGINE
@@ -136,7 +136,7 @@ Dove: `modalità interattiva` (-i) e con un `terminale` (-t)
 # Avanzamento del progetto 
 
 ## Indice
-[Utility](#utility)<br>
+### [Utility](#utility)<br>
 - [Docker](#1-struttura-docker)<br>
 - [Readme](#2-scheletro-del-readme)<br>
 - [gitignore](#3-gitignore)<br>
