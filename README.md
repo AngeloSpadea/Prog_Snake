@@ -35,6 +35,7 @@ oltrepassando un bordo del campo, il serpente riappare dal bordo opposto;
 
 Una volta configurato corretamente il gioco si avvierà il `main.py` da terminale come illustrato in [Avvio Progetto](#avvio-progetto). Il programma si avvierà e richiederà di indicare il percorso file della partita che vogliamo caricare, una volta inserito il percorso file si preme invio. Le partite a disposizione si trovano nella cartella `data` e sono 8 `gamefile_*` * --> `numero partita` e 4 `gamefile_*` * --> `nome partita`. Il programma eseguira la partita e restituira un'immagine con il riassunto della partita e stamperà la lunghezza del corpo del serpente. Nell'immagine generata avremo colorato in verde il corpo del serpente, in grigio la scia ossia tutte le mosse che ha effettuato il serpente e in fine in rosso i blocchi e in arancione il cibo rimanente. Questo file verrà salvato nella cartella `data` con il nome `fine_fild_*` * --> `numero partita` oppure per le partite con nome sara solo `fine_fild`.
 
+
 ### Funzioni principali di Funzioni_gioco
 
 #### Gioca(Angelo)
@@ -78,6 +79,39 @@ Una volta configurato corretamente il gioco si avvierà il `main.py` da terminal
 https://github.com/AngeloSpadea/Prog_Snake.git
 
 ```
+## Struttura del Programma
+
+Controllare che la directory del programma sia la seguente
+
+```
+.
+└── Prog_Snake
+    ├── data
+    │   ├── expected_01.png
+    │   ├── expected_02.png
+    │   ├── ...
+    │   ├── field_01.png
+    │   ├── field_02.json
+    │   ├── ...
+    │   ├── gamefile_01.json
+    │   ├── gamefile_02.json
+    │   ├── ...
+    │   ├── gamefile_esce_dal_bordo.json
+    │   ├── gamefile_finisce_le_mosse.json
+    │   └── ...
+    ├── .dockerignore
+    ├── .gitignore
+    ├── conversione.py
+    ├── Dockerfile
+    ├── funzioni_gioco.py
+    ├── gestione_input.py
+    ├── main.py
+    ├── README.md
+    ├── requirements.txt
+    ├── test_01.py
+    └── test_02.py
+```
+
 ## Installare le dipendenze
 ```
 pip install -r requirements.txt
