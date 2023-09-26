@@ -33,33 +33,39 @@ oltrepassando un bordo del campo, il serpente riappare dal bordo opposto;
 
 ## Funzionamento
 
-Una volta configurato corretamente il gioco si avvierà il `main.py` da terminale come illustrato di seguito. Il programma si avvierà e richiederà di indicare il percorso file della partita che vogliamo caricare, una volta inserito il percorso file si preme invio. Le partite a disposizione si trovano in data e sono 8 `gamefile_*` * --> `numero partita` e 4 `gamefile_*` * --> `nome partita`. Il programma eseguira la partita e restituira un'immagine con il riassunto della partita. Nel file generato avremo colorato in verde il corpo del serpente, in grigio la scia ossia tutte le mosse che ha effettuato il serpente e in fine in rosso i blocchi e in arancione il cibo rimanente. Questo file verrà salvato nella cartella `data` con il nome `fine_fild_*` * --> `numero partita` oppure per le partite con nome sara solo `fine_fild`.
+Una volta configurato corretamente il gioco si avvierà il `main.py` da terminale come illustrato in [Avvio Progetto](#avvio-progetto). Il programma si avvierà e richiederà di indicare il percorso file della partita che vogliamo caricare, una volta inserito il percorso file si preme invio. Le partite a disposizione si trovano nella cartella `data` e sono 8 `gamefile_*` * --> `numero partita` e 4 `gamefile_*` * --> `nome partita`. Il programma eseguira la partita e restituira un'immagine con il riassunto della partita e stamperà la lunghezza del corpo del serpente. Nell'immagine generata avremo colorato in verde il corpo del serpente, in grigio la scia ossia tutte le mosse che ha effettuato il serpente e in fine in rosso i blocchi e in arancione il cibo rimanente. Questo file verrà salvato nella cartella `data` con il nome `fine_fild_*` * --> `numero partita` oppure per le partite con nome sara solo `fine_fild`.
 
 ### Funzioni principali di Funzioni_gioco
 
-#### Play(Angelo)
+#### Gioca(Angelo)
+> def gioca(start, mosse, food, blocks, righe, colonne):
 
 #### Converti_mosse(Martina)
+> def converti_mosse(mosse):
 
 #### Controlla(Antonio)
+> def controlla(corpo, scia_serpente, posizione_nuova, food, blocks, mossa):
 
 ### Funzioni Secondarie di Controlla
 
 #### Mangia (Antonio)
-
-#### Termina (Angelo)
+> def mangia(corpo, scia_serpente, posizione_nuova, food):
 
 #### Muovi (Martina)
+> def muovi(corpo, scia_serpente, posizione_nuova):
 
 ### Funzioni Secondarie di Play
 
 #### Calcolo_mossa (Martina)
+> def calcola_mossa(corpo, mossa, righe, colonne):
 
 ### Funzioni principali di gestione_input
 
 #### carico_dati (Angelo)
+> def carico_dati(game_file):
 
-#### restituisco_dati (ignoto)
+#### restituisco_dati (Antonio)
+> def restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, final_field):
 
 ### Main (Angelo)
 
