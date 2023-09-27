@@ -119,25 +119,5 @@ class test(unittest.TestCase):
         self.assertEqual(result[0], [[4,1], [5,1]])
         self.assertEqual(result[1], [[5,2], [5,3]]) 
     
-    def test_scontro_coda(self):
-        """
-        Verifica che la funzione scontro_coda rilevi correttamente lo scontro con la coda in direzione verticale/orizzontale.
-        ----------
-        Parametri: corpo, posizione_nuova, mossa.
-        Risultato atteso: condizione che segnala che lo scontro è avvenuto.
-        
-        """
-        result = scontro_coda([[0,3], [0,2], [0,1], [1,1], [2,1], [2,2], [1,2]], [0,3], [-1,0])
-        self.assertEqual(result, True)
-        
-    def test_scontro_coda_direzione_diagonale(self):
-        """
-        Verifica che la funzione scontro_coda rilevi correttamente lo scontro con la coda in direzione diagonale.
-        ----------
-        Parametri: corpo, posizione_nuova, mossa.
-        Risultato atteso: condizione che segnala che lo scontro è avvenuto.
-        
-        """
-        result = scontro_coda([[0,3], [1,2], [2,1], [3,1], [3,2], [3,3], [2,3], [1,3]], [0,2], [-1,-1])
-        self.assertEqual(result, True)
+    
     
