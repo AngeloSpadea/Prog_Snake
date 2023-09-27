@@ -1,5 +1,5 @@
 import unittest
-from funzioni_gioco import calcola_mossa, converti_mosse, mangia, muovi, scontro_coda
+from funzioni_gioco import calcola_mossa, converti_mosse, mangia, muovi
 
 class test(unittest.TestCase):
     # Nel Modificare i test tenere conto che nella rappresentazione dei punti [i,j]

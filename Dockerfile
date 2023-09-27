@@ -22,7 +22,7 @@ USER appuser
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
 CMD ["python", "main.py"]
 
-#Se si vogliono far partire i test bisogna commentare la riga 24 precedente e scommentare la riga 26 o 28 a seconda di quale test fare partire
+#Se si vogliono far partire i test bisogna commentare la riga 23 precedente e scommentare la riga 26 o 28 a seconda di quale test fare partire
 #CMD ["python", "test_01.py"]
 
 #CMD ["python", "tets_02.py"]
