@@ -1,6 +1,6 @@
 {
     "field_in": "data/field_test.json",
     "start": [ 7, 7],
-    "moves": "NE NE NE NE NE NE E S S S S",
+    "moves": "NE NE NE NE NE NE NE SE SW SW W NE NE NE NE",
     "field_out": "data/final_field.png"
 }

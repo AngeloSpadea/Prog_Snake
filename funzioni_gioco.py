@@ -65,7 +65,7 @@ def calcola_mossa(corpo, mossa, righe, colonne):
     nuova_posizione = [(corpo[0][0] + mossa[0]) % righe, (corpo[0][1] + mossa[1]) % colonne]
     return nuova_posizione
     
-def controlla(corpo, scia_serpente, posizione_nuova, food, blocks, mossa):
+def controlla(corpo, scia_serpente, posizione_nuova, food, blocks, mossa,righe, colonne):
     """
     Funzione che controlla se il serpente si scontra contro la sua stessa coda attraversando il suo corpo.
     Se ciò è verificato, il gioco deve terminare. Altrimenti controlla se posizione_nuova è:
@@ -102,8 +102,9 @@ def controlla(corpo, scia_serpente, posizione_nuova, food, blocks, mossa):
         (True se il serpente colpisce un blocco, altrimenti False).
     """
     condizione = False
-    segmento1, segmento2 = scontro_coda(posizione_nuova, mossa)
-    if posizione_nuova in blocks or posizione_nuova in corpo[:len(corpo)-1] or (segmento1 in corpo and segmento2 in corpo and abs(segmento1[0]-segmento2[0]) and abs(segmento1[1]-segmento2[1])):
+    segmento1, segmento2, index1, index2 = scontro_coda(corpo, posizione_nuova, mossa,righe, colonne)
+    print(f"segmento 1 {index1} , segmento 2 {index2},/n {corpo}")
+    if posizione_nuova in blocks or posizione_nuova in corpo[:len(corpo)-1] or ((segmento1 in corpo and segmento2 in corpo) and abs(index1-index2)<2):
         condizione = True
     elif posizione_nuova in food:
         corpo, scia_serpente = mangia(corpo, scia_serpente, posizione_nuova, food)
@@ -177,7 +178,7 @@ def muovi(corpo, scia_serpente, posizione_nuova):
     print(f"il corpo è:{corpo} e la scia è: {scia_serpente}")
     return corpo, scia_serpente
 
-def scontro_coda(posizione_nuova, mossa):
+def scontro_coda(corpo, posizione_nuova, mossa,righe, colonne):
     """
     Funzione che controlla se il serpente si scontra con la sua coda, tentando di attraversarla.
     Per verificare se il serpente tenta di attraversare la sua coda in direzione diagonale,
@@ -207,9 +208,20 @@ def scontro_coda(posizione_nuova, mossa):
         ascisse a posizione_nuova
 
     """
-    segmento1 = [posizione_nuova[0] - mossa[1], posizione_nuova[1]]
-    segmento2 = [posizione_nuova[0], posizione_nuova[1] - mossa[0]]
-    return segmento1, segmento2
+    testa = corpo[0]
+    mossa_parziale1 = [mossa[0],0]
+    mossa_parziale2 = [0,mossa[1]]
+    segmento1 = calcola_mossa(corpo, mossa_parziale1, righe, colonne)
+    segmento2 = calcola_mossa(corpo, mossa_parziale2, righe, colonne)
+    if segmento1 in corpo:
+        index1=corpo.index(segmento1)
+    else:
+        index1= -1
+    if segmento2 in corpo:
+        index2=corpo.index(segmento2)
+    else:
+        index2= -1
+    return segmento1, segmento2, index1, index2
 
 def gioca(start, mosse, food, blocks, righe, colonne):
     """
@@ -261,7 +273,7 @@ def gioca(start, mosse, food, blocks, righe, colonne):
     #corpo, scia_serpente = controlla(corpo, scia_serpente, start, mosse, food, blocks, righe, colonne)    
     for mossa in mosse_convertite:
         posizione_nuova = calcola_mossa(corpo, mossa, righe, colonne)
-        corpo, scia_serpente, condizione = controlla(corpo, scia_serpente, posizione_nuova, food, blocks, mossa)
+        corpo, scia_serpente, condizione = controlla(corpo, scia_serpente, posizione_nuova, food, blocks, mossa,righe, colonne)
         if condizione:
             break
     return corpo, scia_serpente, food, blocks, righe, colonne
