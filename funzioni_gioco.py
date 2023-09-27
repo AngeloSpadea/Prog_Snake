@@ -89,7 +89,7 @@ def controlla(corpo, scia_serpente, posizione_nuova, food, blocks, mossa, righe,
     food : list
         lista di caselle che contengono il cibo nel campo da gioco.
     blocks : list
-        lista di caselle che sono blocchi nel campo da gioco.
+        lista di caselle che contengono blocchi nel campo da gioco.
     mossa : list
         lista di due elementi dove il primo rappresenta lo spostamento sulle righe
         mentre il sencondo lo spostamento sulle colonne.
