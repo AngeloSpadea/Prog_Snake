@@ -47,7 +47,9 @@ def carico_dati(game_file):
     """
     Funzione che legge i dati da un file JSON specificato e restituisce una tupla 
     contenente diverse liste di dati che saranno utilizzati all'interno del programma 
-    principale del gioco per la gestione dello stesso.
+    principale del gioco per la gestione dello stesso. Se gli viene fornita un game_file
+    sbagliato o non presente ti richiede di inserirlo fino a quando trova la directory;
+    se si vuole fermare prima questo processo basta digitare no
 
     Parameters
     ----------
@@ -77,7 +79,7 @@ def carico_dati(game_file):
                 blocks = field['blocks']   
                 return start, mosse, food, blocks, righe, colonne, field_out
         except FileNotFoundError:
-            print("Il file non è stato trovato. Controlla che il file è stato scritto correttamente ed è present nella directory data.\nEsempio: data/gamefile_01.json")
+            print("Il file non è stato trovato.\nControlla che il file è stato scritto correttamente ed è present nella directory data.\nEsempio: data/gamefile_01.json")
         game_file = input("Inserisci il nome del file di gioco:\nPer uscire digitare no\n")
         if game_file.lower() == "no":
             print("Hai chiuso il gioco")            
