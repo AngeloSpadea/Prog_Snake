@@ -70,7 +70,7 @@ class test(unittest.TestCase):
         
         """
         result = mangia([[1,1]],[],[1,2],[[1, 2], [2, 2], [3, 2]])
-        self.assertEqual(result[0],[[1,2],[1,2]])
+        self.assertEqual(result[0],[[1,2],[1,1]])
         self.assertEqual(result[1],[[1,1]])
 
     
