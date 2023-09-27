@@ -11,22 +11,21 @@ import funzioni_gioco as fg
     
 def play(game_file: str) -> int:
     """
-    Funzione principale dedata/gamefile_02.jsonl programma che:
+    Funzione principale del programma che:
         - carica i dati di gioco dal file specificato;
         - consente di giocare utilizzando i dati di gioco ottenuti;
         - restituisce la lunghezza del serpente quando il gioco è terminato.
 
     Parameters
     ----------
-    game_file: strdata/gamefile_02.json
-        nome del file di gioco.
-    colonne : int
-        numero di colonne del campo di gioco.
-
+    game_file: str 
+        nome del file di gioco. I file di gioco si trovano nella directory data
+        esempio di stringa ("data/gamefile_01.json")
+        
     Returns
     -------
     lunghezza_serpente: int
-        numero di quadratini occupati dal serpente alla fine del gioco.
+        Lunghezza del serpente alla fine del gioco.
 
     """
     start, mosse, food, blocks, righe, colonne, field_out = gi.carico_dati(game_file)

@@ -8,6 +8,7 @@ Created on Mon Sep 11 18:00:31 2023
 import json
 from PIL import Image
 from conversione import convert_image_to_json
+import sys
 
 from abc import ABC, abstractmethod
 
@@ -58,19 +59,27 @@ def carico_dati(game_file):
     una tupla con le liste dei dati estratti: start, mosse, food, blocks, righe, colonne, field_out.
 
     """
-    f = open(game_file)
-    game = json.load(f)
-    field_out = game['field_out']
-    campo_gioco = game['field_in']
-    g = type_of_input(campo_gioco)
-    field = json.load(g)
-    start = game['start']
-    mosse = game['moves']    
-    righe = field['rows']
-    colonne = field['cols']
-    food = field['food']
-    blocks = field['blocks']        
-    return start, mosse, food, blocks, righe, colonne, field_out
+    while True:
+        try:
+            with open(game_file, 'r') as file:
+                game = json.load(file)
+                field_out = game['field_out']
+                campo_gioco = game['field_in']
+                g = type_of_input(campo_gioco)
+                field = json.load(g)
+                start = game['start']
+                mosse = game['moves']    
+                righe = field['rows']
+                colonne = field['cols']
+                food = field['food']
+                blocks = field['blocks']   
+                return start, mosse, food, blocks, righe, colonne, field_out
+        except FileNotFoundError:
+            print("Il file non è stato trovato. Controlla che il file è stato scritto correttamente ed è present nella directory data.\nEsempio: data/gamefile_01.json")
+        if game_file.lower() == "no":            
+            sys.exit("Hai chiuso il gioco")
+        else:
+            game_file = input("Inserisci il nome del file di gioco:\nPer uscire digitare no\n")
 
 def restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, final_field):
     """
