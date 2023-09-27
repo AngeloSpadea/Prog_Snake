@@ -76,10 +76,11 @@ def carico_dati(game_file):
                 return start, mosse, food, blocks, righe, colonne, field_out
         except FileNotFoundError:
             print("Il file non è stato trovato. Controlla che il file è stato scritto correttamente ed è present nella directory data.\nEsempio: data/gamefile_01.json")
-        if game_file.lower() == "no":            
-            sys.exit("Hai chiuso il gioco")
-        else:
-            game_file = input("Inserisci il nome del file di gioco:\nPer uscire digitare no\n")
+        game_file = input("Inserisci il nome del file di gioco:\nPer uscire digitare no\n")
+        if game_file.lower() == "no":
+            print("Hai chiuso il gioco")            
+            sys.exit()
+            
 
 def restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, final_field):
     """
