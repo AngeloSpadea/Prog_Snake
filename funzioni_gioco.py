@@ -110,15 +110,12 @@ def controlla(corpo, scia_serpente, posizione_nuova, food, blocks, mossa, righe,
     """
     condizione = False
     segmento1, segmento2, index1, index2 = scontro_coda(corpo, mossa, righe, colonne)
-    print(f"segmento 1 {index1} , segmento 2 {index2},/n {corpo}")
     if posizione_nuova in blocks or posizione_nuova in corpo[:len(corpo)-1] or ((segmento1 in corpo and segmento2 in corpo) and abs(index1-index2)<2):
         condizione = True
     elif posizione_nuova in food:
         corpo, scia_serpente = mangia(corpo, scia_serpente, posizione_nuova, food)
-        print("Il serpente ha mangiato il cibo!")
     else: #se la posizione nuova non è nè un cibo nè un blocco allora vuol dire che è vuoto quindi mi ci sposto
         corpo, scia_serpente = muovi(corpo, scia_serpente, posizione_nuova)
-        print("mi sono mosso")
     return corpo, scia_serpente, condizione
 
 def mangia(corpo, scia_serpente, posizione_nuova, food):
@@ -153,7 +150,6 @@ def mangia(corpo, scia_serpente, posizione_nuova, food):
     scia_serpente.insert(0,coda)
     corpo.remove(coda)
     corpo = [posizione_nuova]+corpo+[coda]
-    print(f"il corpo è:{corpo} e la scia è: {scia_serpente}")
     return corpo, scia_serpente
 
 def muovi(corpo, scia_serpente, posizione_nuova):
@@ -182,7 +178,6 @@ def muovi(corpo, scia_serpente, posizione_nuova):
     coda = corpo.pop(-1)
     scia_serpente.insert(0,coda) 
     corpo = [posizione_nuova]+corpo
-    print(f"il corpo è:{corpo} e la scia è: {scia_serpente}")
     return corpo, scia_serpente
 
 def scontro_coda(corpo, mossa, righe, colonne):

@@ -21,13 +21,11 @@ class ImageProcessingStrategy(Strategy):
     def execute(self, campo_gioco):
         campo_gioco_convertito=convert_image_to_json(campo_gioco)
         g = open(campo_gioco_convertito)
-        print("Elaborazione immagine PNG")
         return g
 
 class JsonProcessingStrategy(Strategy):
     def execute(self, campo_gioco):
         g = open(campo_gioco)
-        print("Elaborazione file JSON")
         return g
        
 def type_of_input(campo_gioco):

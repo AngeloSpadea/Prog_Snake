@@ -33,7 +33,7 @@ def play(game_file: str) -> int:
     corpo, scia_serpente, food, blocks, righe, colonne = fg.gioca(start, mosse, food, blocks, righe, colonne)
     
     lunghezza_serpente = gi.restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, field_out)
-    print(lunghezza_serpente) 
+    print(f"La lunghezza del serpente alla fine del gioco è: {lunghezza_serpente}") 
     return lunghezza_serpente
 
 if __name__ == '__main__':    
