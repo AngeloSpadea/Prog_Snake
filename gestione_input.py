@@ -37,9 +37,11 @@ def type_of_input(campo_gioco):
         else:
             strategy = JsonProcessingStrategy()
         g=strategy.execute(campo_gioco)
+        return g
     else:
-        print("Formato file non supportato")        
-    return g
+        print("Formato file non supportato") 
+        sys.exit()
+    
       
 def carico_dati(game_file):
     """
