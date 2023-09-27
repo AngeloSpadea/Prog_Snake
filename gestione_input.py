@@ -97,10 +97,8 @@ def restituisco_dati(corpo, scia_serpente, food, blocks, righe, colonne, final_f
 
     Parameters
     ----------
-    final_field : json
-        il file finale de gioco nel quale sono contenute le informazione del 
-        campo da gioco, della posizione iniziale, la lista delle mosse e il 
-        file su cui salvare l'immagine finale.
+    final_field : str
+        stringa che contiene il percorso del file dove si vuole salvare l'immagine
 
     Returns
     -------
