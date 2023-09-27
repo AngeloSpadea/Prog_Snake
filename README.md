@@ -146,7 +146,7 @@ pip install -r requirements.txt
 
 ## Avviare il gioco
 
-Una volta clonata la repository, da terminale collocarsi nella directy di Prog_Snake e avviare il seguente comando:
+Una volta clonata la repository, da terminale collocarsi nella directoy di Prog_Snake e avviare il seguente comando:
 
 ```
 python main.py
@@ -218,7 +218,7 @@ Dove: `modalità interattiva` (-i) e con un `terminale` (-t)
 ### Utility
 ___
 #### 1 __Struttura Docker__
-[✗] Implementazione<br> 
+[✓] Implementazione<br> 
   0%|------------------------------| 0/1 [00:00 ___________, Commits: _ ]<br>
 ___
 #### 2 __Scheletro del Readme__
@@ -226,9 +226,9 @@ ___
 [Vai a Readme.md ](https://github.com/AngeloSpadea/Prog_Snake/blob/main/README.md?plain=1)
 
 [✓] Scrittura Introduzione<br>
-[✗] Scrittura Funzionamento<br>
-[✗] Scrittura Istruzioni di installazione<br>
-[✗] Aggiornamento Stato progetto<br>
+[✓] Scrittura Funzionamento<br>
+[✓] Scrittura Istruzioni di installazione<br>
+[✓] Aggiornamento Stato progetto<br>
 100%|██████------------------------| 1/4 [00:00 Sep 15 2023, Commits: 5,6 ]<br>
 `Descrizione`
 ___
