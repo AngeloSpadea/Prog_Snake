@@ -67,6 +67,7 @@ def carico_dati(game_file):
                 game = json.load(file)
                 field_out = game['field_out']
                 campo_gioco = game['field_in']
+                #Richiamo Strategy Design Pattern
                 g = type_of_input(campo_gioco)
                 field = json.load(g)
                 start = game['start']

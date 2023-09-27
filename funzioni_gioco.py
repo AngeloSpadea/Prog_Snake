@@ -110,6 +110,16 @@ def controlla(corpo, scia_serpente, posizione_nuova, food, blocks, mossa, righe,
     """
     condizione = False
     segmento1, segmento2, index1, index2 = scontro_coda(corpo, mossa, righe, colonne)
+    #--Condizione1-- (Se la posizione nuova coincide con un blocco) 
+    # --or--
+    #--Condizione2-- (Se la posizione nuova si scontra con il corpo escludendo la coda che poi nel movimento si libererà) 
+    # --or--
+    #--Condizione3-- (E' composta da due condizioni 
+    #   CondizioneA verifica se segmento1 e segmento2 sono in corpo, ricordiamo che segmento1 e segmento2 
+    #      sono i segmenti diagonali alla testa rispetto alla direzione della mossa 
+    #   --and--
+    #   CondizioneB che verifica se i segmenti sono consecutivi, nel in cui sono consecutivi la testa sta tentando di 
+    #       attraversare il corpo in caso contrario la testa sta solo passando vicino a due porzioni del suo corpo)
     if posizione_nuova in blocks or posizione_nuova in corpo[:len(corpo)-1] or ((segmento1 in corpo and segmento2 in corpo) and abs(index1-index2)<2):
         condizione = True
     elif posizione_nuova in food:
