@@ -3,30 +3,44 @@ import json
 import os
 
 def convert_image_to_json(image_path):
+    """
+    Funzione che a partire da un'immagine costrusice il file JSON
+
+    Parameters
+    ----------
+    image_path : str
+        percorso del file dell'immagine con estensione .png
+
+    Returns
+    -------
+    json_file_path : str
+        persocorso del file JSON.
+
+    """
     # Carica l'immagine
     image = Image.open(image_path)
 
     # Estrai le dimensioni dell'immagine
-    cols, rows = image.size  # Inverti le colonne con le righe
+    cols, rows = image.size
 
     # Inizializza le liste per il cibo e i blocchi
     food = []
     blocks = []
 
     # Scansiona l'immagine pixel per pixel
-    for y in range(rows):  # Inverti la scansione delle colonne e delle righe
-        for x in range(cols):  # Inverti la scansione delle colonne e delle righe
-            pixel_color = image.getpixel((x, y))  # Inverti le coordinate x e y
+    for y in range(rows):
+        for x in range(cols):
+            pixel_color = image.getpixel((x, y))
 
-            if pixel_color == (255, 128, 0):  # Colore del cibo
-                food.append([y, x])  # Inverti completamente le coordinate
-            elif pixel_color == (255, 0, 0):  # Colore del blocco
-                blocks.append([y, x])  # Inverti completamente le coordinate
+            if pixel_color == (255, 128, 0):
+                food.append([y, x]) 
+            elif pixel_color == (255, 0, 0):
+                blocks.append([y, x])
 
     # Crea il dizionario JSON per questa immagine
     dati_immagine = {
-        "rows": rows,  # Inverti le colonne con le righe
-        "cols": cols,  # Inverti le colonne con le righe
+        "rows": rows,
+        "cols": cols,  
         "food": food,
         "blocks": blocks
     }
