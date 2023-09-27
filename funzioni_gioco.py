@@ -65,14 +65,17 @@ def calcola_mossa(corpo, mossa, righe, colonne):
     nuova_posizione = [(corpo[0][0] + mossa[0]) % righe, (corpo[0][1] + mossa[1]) % colonne]
     return nuova_posizione
     
-def controlla(corpo, scia_serpente, posizione_nuova, food, blocks, mossa,righe, colonne):
+def controlla(corpo, scia_serpente, posizione_nuova, food, blocks, mossa, righe, colonne):
     """
-    Funzione che controlla se il serpente si scontra contro la sua stessa coda attraversando il suo corpo.
-    Se ciò è verificato, il gioco deve terminare. Altrimenti controlla se posizione_nuova è:
-        1) un blocco ("block"): allora il gioco deve terminare.
-        2) un cibo ("food"): allora il serpente deve mangiare e crescere di
-                             dimensione.
-        3) una casella vuota: allora il serpente si muove.
+    Funzione che controlla cos'è posizione_nuova e se il serpente si scontra contro la sua stessa coda attraversando il suo corpo.
+    Quindi, la funzione controlla::
+        1) se posizione_nuova è un blocco ("block"): allora il gioco deve terminare.
+        2) se posizione_nuova è presente in corpo escludendo l'ultimo elemento: allora il serpente ha colpito il corpo 
+            e il gioco deve terminare.
+        3) se segmento1 e segmento2 sono presenti in corpo e se la loro differenza di indici è minore di 2: allora il serpente 
+            attraversa la sua coda in direzione diagonale e il gioco deve terminare.
+        4) se posizione_nuova è un cibo ("food"): allora il serpente deve mangiare e crescere di dimensione.
+        5) se posizione_nuova è una casella vuota: allora il serpente si muove.
 
     Parameters
     ----------
@@ -90,6 +93,10 @@ def controlla(corpo, scia_serpente, posizione_nuova, food, blocks, mossa,righe, 
     mossa : list
         lista di due elementi dove il primo rappresenta lo spostamento sulle righe
         mentre il sencondo lo spostamento sulle colonne.
+    righe : int 
+        numero di righe del campo di gioco.
+    colonne : int
+        numero di colonne del campo di gioco.
 
     Returns
     -------
@@ -198,8 +205,6 @@ def scontro_coda(corpo, mossa, righe, colonne):
     Se segmento1 e segmento2 non sono presenti, index1 e index 2 vengono impostati a -1 per indicare che 
     segmento1 e segmento2 non sono stati trovati all'interno di corpo.
     
-    il gioco deve terminare.
-    
     Parameters
     ----------
     corpo : list
@@ -224,7 +229,7 @@ def scontro_coda(corpo, mossa, righe, colonne):
         indice di segmento1 all'interno di corpo o -1 se non presente.
     index2: int
         indice di segmento2 all'interno di corpo o -1 se non presente.
-        
+
     """
     mossa_parziale1 = [mossa[0],0]
     mossa_parziale2 = [0,mossa[1]]
